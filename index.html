@@ -3,399 +3,155 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Jhonathan Luiz De Paula — Portfólio Artístico</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=IM+Fell+English:ital@0;1&display=swap');
-:root{
-  --bg:#0a0a0a; --bg2:#111; --gold:#d4af37; --gold2:#f0d77b; --txt:#e8e8e8; --mut:#9a9a9a;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--txt);font-family:'IM Fell English',Georgia,serif;overflow-x:hidden}
-header{text-align:center;padding:70px 20px 40px}
-header h1{font-size:2.8rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:400;font-family:'Berkshire Swash',serif}
-header h1 b{font-weight:400;color:var(--gold2)}
-header p{color:var(--mut);margin-top:12px;letter-spacing:2px;font-size:1.1rem;font-style:italic}
-nav{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;padding:20px;border-top:1px solid #222;border-bottom:1px solid #222;position:sticky;top:0;background:rgba(10,10,10,.92);backdrop-filter:blur(8px);z-index:50}
-nav a{color:var(--gold);text-decoration:none;letter-spacing:2px;font-size:.85rem;text-transform:uppercase;transition:.3s}
-nav a:hover{color:var(--gold2);text-shadow:0 0 10px var(--gold)}
-section{padding:60px 20px;max-width:1200px;margin:0 auto}
-.section-title{text-align:center;font-size:1.8rem;letter-spacing:2px;color:var(--gold);margin-bottom:40px;text-transform:uppercase;font-weight:400;font-family:'Berkshire Swash',serif}
-.section-title b{font-weight:700}
-.varal{position:relative;display:flex;flex-wrap:wrap;justify-content:center;gap:40px 50px;padding:30px 10px 60px}
-.corda{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#5a4a1a,var(--gold),#5a4a1a,transparent)}
-.pendura{position:relative;width:200px;cursor:pointer;transform-origin:top center;animation:swing 4s ease-in-out infinite}
-.pendura:nth-child(2n){animation-duration:5s;animation-delay:.5s}
-.pendura:nth-child(3n){animation-duration:4.5s;animation-delay:1s}
-.pendura:nth-child(4n){animation-duration:6s}
-.pendura::before{content:'';position:absolute;top:-14px;left:50%;transform:translateX(-50%);width:14px;height:14px;border-radius:50%;background:var(--gold);box-shadow:0 0 6px var(--gold)}
-.pendura img{width:100%;height:200px;object-fit:cover;border:3px solid #1a1a1a;box-shadow:0 10px 30px rgba(0,0,0,.7);display:block;transition:.4s}
-.pendura:hover img{border-color:var(--gold);box-shadow:0 0 25px rgba(212,175,55,.5)}
-.pendura .lbl{text-align:center;color:var(--mut);font-size:.75rem;margin-top:8px;letter-spacing:1px}
-@keyframes swing{0%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}100%{transform:rotate(-3deg)}}
-.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
-.grade img{width:100%;height:220px;object-fit:cover;border:2px solid #161616;cursor:pointer;transition:.35s}
-.grade img:hover{border-color:var(--gold);transform:scale(1.03);box-shadow:0 0 20px rgba(212,175,55,.4)}
-.videos{display:flex;flex-wrap:wrap;gap:30px;justify-content:center}
-.videos iframe{border:2px solid #1a1a1a;max-width:100%}
-.lb{position:fixed;inset:0;background:rgba(0,0,0,.95);display:none;align-items:center;justify-content:center;z-index:100;flex-direction:column}
-.lb.on{display:flex}
-.lb img{max-width:92vw;max-height:82vh;border:2px solid var(--gold)}
-.lb .nav{margin-top:15px;display:flex;gap:30px}
-.lb button{background:none;border:1px solid var(--gold);color:var(--gold);padding:10px 24px;cursor:pointer;letter-spacing:2px;font-size:.8rem;text-transform:uppercase}
-.lb button:hover{background:var(--gold);color:#000}
-.lb .close{position:absolute;top:20px;right:30px;font-size:2rem;color:var(--gold);cursor:pointer}
-.contato{text-align:center}
-.contato a{color:var(--gold);text-decoration:none;font-size:1.2rem;letter-spacing:2px}
-.contato a:hover{color:var(--gold2)}
-footer{text-align:center;padding:40px;color:#555;font-size:.8rem;border-top:1px solid #1a1a1a;letter-spacing:1px}
-@media(max-width:600px){header h1{font-size:1.8rem}.pendura{width:140px}.pendura img{height:140px}.grade{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}.grade img{height:140px}}
-</style>
+<title>Jhonathan Luiz De Paula — Comic Coloring & Visual Direction</title>
+<meta name="description" content="Estúdio de colorização de quadrinhos e direção visual. Não apenas colorimos histórias — damos a elas uma identidade visual.">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>Jhonathan <b>De Paula</b></h1>
-  <p>COLORISTA · ARTISTA · MEMBRO DA EQUIPE UZ</p>
-</header>
+
 <nav>
-  <a href="#home">Início</a>
-  <a href="#comics">Coloração</a>
-  <a href="#manuais">Manuais</a>
-  <a href="#ia">IA</a>
-  <a href="#videos">Vídeos</a>
-  <a href="#animacao">Animação</a>
-  <a href="#contato">Contato</a>
+  <span class="brand">JHONATHAN DE PAULA</span>
+  <div class="links">
+    <a href="#work">Work</a><a href="#services">Services</a><a href="#process">Process</a><a href="#about">About</a><a href="#contact">Contact</a>
+  </div>
+  <span class="status"><span class="dot"></span> Available · SP · BR</span>
 </nav>
 
-<section id="home">
-  <div class="section-title">Bem-vindo ao <b>Varal</b> das Artes</div>
-  <div class="varal"><div class="corda"></div>
-<div class="pendura" onclick="openGal('comics',0)"><img src="assets/comics/131691794_3592833050773731_7673138246640333056_n.jpg" alt="Coloração Comics" loading="lazy"><div class="lbl">Coloração Comics</div></div>
-<div class="pendura" onclick="openGal('manuais',0)"><img src="assets/manuais/101683655_3046768558713519_1293663305109340160_n.jpg" alt="Artes Manuais" loading="lazy"><div class="lbl">Artes Manuais</div></div>
-<div class="pendura" onclick="openGal('ia',0)"><img src="assets/ia/506195043_10055110211212617_7497337230569576828_n.jpg" alt="Artes de IA" loading="lazy"><div class="lbl">Artes de IA</div></div>
-</div>
-  <div style="text-align:center;margin-top:10px"><video src="assets/videos/comercial_santana.mp4" controls style="width:360px;max-width:90%;border:2px solid var(--gold);box-shadow:0 0 25px rgba(212,175,55,.3)"></video><p style="color:var(--mut);margin-top:10px;letter-spacing:2px">▶ Comercial Santana — veja mais na seção Vídeos</p></div>
-  <p style="text-align:center;color:var(--mut);margin-top:20px">clique em uma arte para abrir a galeria</p>
-</section>
-
-<section id="comics">
-  <div class="section-title">Coloração <b>Comics</b></div>
-  <div class="varal"><div class="corda"></div>
-<div class="pendura" onclick="openGal('comics',0)"><img src="assets/comics/131691794_3592833050773731_7673138246640333056_n.jpg" alt="Coloração Comics" loading="lazy"><div class="lbl">Coloração Comics</div></div>
-<div class="pendura" onclick="openGal('comics',0)"><img src="assets/comics/131713956_3592830730773963_5451197990680390707_n.jpg" alt="Coloração Comics" loading="lazy"><div class="lbl">Coloração Comics</div></div>
-<div class="pendura" onclick="openGal('comics',0)"><img src="assets/comics/30261386_1714334998623555_3135055839493095424_n.jpg" alt="Coloração Comics" loading="lazy"><div class="lbl">Coloração Comics</div></div>
-<div class="pendura" onclick="openGal('comics',0)"><img src="assets/comics/30624619_1718162304907491_2318758109016752128_n.jpg" alt="Coloração Comics" loading="lazy"><div class="lbl">Coloração Comics</div></div>
-<div class="pendura" onclick="openGal('comics',0)"><img src="assets/comics/503273708_10015171538539818_3389980250132042163_n.jpg" alt="Coloração Comics" loading="lazy"><div class="lbl">Coloração Comics</div></div>
-<div class="pendura" onclick="openGal('comics',0)"><img src="assets/comics/503350167_10015171758539796_7255523731346531811_n.jpg" alt="Coloração Comics" loading="lazy"><div class="lbl">Coloração Comics</div></div>
-<div class="pendura" onclick="openGal('comics',0)"><img src="assets/comics/503435307_10015171508539821_1883827961031514790_n.jpg" alt="Coloração Comics" loading="lazy"><div class="lbl">Coloração Comics</div></div>
-<div class="pendura" onclick="openGal('comics',0)"><img src="assets/comics/503461244_10015171765206462_4740553039685887658_n.jpg" alt="Coloração Comics" loading="lazy"><div class="lbl">Coloração Comics</div></div>
-<div class="pendura" onclick="openGal('comics',0)"><img src="assets/comics/503501030_10015171775206461_8066395096655355679_n.jpg" alt="Coloração Comics" loading="lazy"><div class="lbl">Coloração Comics</div></div>
-<div class="pendura" onclick="openGal('comics',0)"><img src="assets/comics/503570001_10015171485206490_1815629274889927094_n.jpg" alt="Coloração Comics" loading="lazy"><div class="lbl">Coloração Comics</div></div>
-</div>
-  <div class="grade" id="grade-comics">
-<img src="assets/comics/131691794_3592833050773731_7673138246640333056_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',0)">
-<img src="assets/comics/131713956_3592830730773963_5451197990680390707_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',1)">
-<img src="assets/comics/30261386_1714334998623555_3135055839493095424_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',2)">
-<img src="assets/comics/30624619_1718162304907491_2318758109016752128_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',3)">
-<img src="assets/comics/503273708_10015171538539818_3389980250132042163_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',4)">
-<img src="assets/comics/503350167_10015171758539796_7255523731346531811_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',5)">
-<img src="assets/comics/503435307_10015171508539821_1883827961031514790_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',6)">
-<img src="assets/comics/503461244_10015171765206462_4740553039685887658_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',7)">
-<img src="assets/comics/503501030_10015171775206461_8066395096655355679_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',8)">
-<img src="assets/comics/503570001_10015171485206490_1815629274889927094_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',9)">
-<img src="assets/comics/503641866_10015171421873163_4993166262186823045_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',10)">
-<img src="assets/comics/503906834_10030223990367906_4782199905755691406_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',11)">
-<img src="assets/comics/503963204_10015171408539831_6019452916703937715_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',12)">
-<img src="assets/comics/503998921_10030224023701236_8439855184721840615_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',13)">
-<img src="assets/comics/504004024_10015171511873154_3364847769536522077_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',14)">
-<img src="assets/comics/504046526_10015171475206491_7061689126552337280_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',15)">
-<img src="assets/comics/504214523_10030224017034570_309987094823373365_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',16)">
-<img src="assets/comics/504493532_10015171768539795_1761904813546243540_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',17)">
-<img src="assets/comics/504799481_10040490522674586_2177096368494523988_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',18)">
-<img src="assets/comics/504909467_10030224057034566_6643044640782257332_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',19)">
-<img src="assets/comics/504937278_10040490392674599_6042650019022238310_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',20)">
-<img src="assets/comics/505069045_10040490592674579_3656958362432111535_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',21)">
-<img src="assets/comics/505074923_10040490606007911_181431930357404877_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',22)">
-<img src="assets/comics/505101601_10040490736007898_6915777438644980719_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',23)">
-<img src="assets/comics/505205141_10040490546007917_7672518222507304919_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',24)">
-<img src="assets/comics/505320060_10043010992422539_6920239614422791778_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',25)">
-<img src="assets/comics/505352003_10040490692674569_6374489545658229916_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',26)">
-<img src="assets/comics/505366867_10043010979089207_225424006737673327_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',27)">
-<img src="assets/comics/505415365_10040490566007915_2888675990449042067_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',28)">
-<img src="assets/comics/505447111_10043010709089234_6622783603091769323_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',29)">
-<img src="assets/comics/505575290_10043012579089047_7017660082617941625_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',30)">
-<img src="assets/comics/506049767_10078013305588974_8609622861471406708_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',31)">
-<img src="assets/comics/506052463_10080582375332067_2587950139623123412_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',32)">
-<img src="assets/comics/506052482_10078013538922284_8006876054296644324_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',33)">
-<img src="assets/comics/506052544_10078013568922281_4059479547062626802_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',34)">
-<img src="assets/comics/506054674_10079316788791959_1170022348521968938_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',35)">
-<img src="assets/comics/506054781_10080582761998695_4557669578953708160_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',36)">
-<img src="assets/comics/506247286_10088540254536279_6510545243046735875_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',37)">
-<img src="assets/comics/506435515_10093203097403328_682693762798852951_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',38)">
-<img src="assets/comics/506437179_10078684682188503_226498645207684170_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',39)">
-<img src="assets/comics/506486577_10093203280736643_6979341453380341024_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',40)">
-<img src="assets/comics/506532270_10087342207989417_3248907980893602019_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',41)">
-<img src="assets/comics/506609300_10087342214656083_7799570033659603594_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',42)">
-<img src="assets/comics/506696332_10078013328922305_413879816762204840_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',43)">
-<img src="assets/comics/506722561_10096284653761839_1511931771680976508_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',44)">
-<img src="assets/comics/507206343_10093460180710953_952613195861634203_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',45)">
-<img src="assets/comics/507268039_10078013492255622_2953667818385891520_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',46)">
-<img src="assets/comics/507305032_10078013578922280_8406604141338313798_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',47)">
-<img src="assets/comics/507426709_10079316852125286_2646888670866953039_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',48)">
-<img src="assets/comics/50806922_2097277783662606_3434684599286890496_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',49)">
-<img src="assets/comics/508103379_10093203244069980_6108145061728049245_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',50)">
-<img src="assets/comics/508163780_10093203304069974_8899739119567944088_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',51)">
-<img src="assets/comics/508622344_23878620335101704_5151692299717011317_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',52)">
-<img src="assets/comics/508744165_23881173314846406_5265212814298516757_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',53)">
-<img src="assets/comics/509425880_23881170601513344_6106676809702302922_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',54)">
-<img src="assets/comics/509440061_23879197841710620_8015061945650835997_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',55)">
-<img src="assets/comics/510967429_23939587802338290_3918557759276431969_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',56)">
-<img src="assets/comics/511985051_23948481651448905_299188615627674885_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',57)">
-<img src="assets/comics/51200818_2111485865575131_6611188367835004928_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',58)">
-<img src="assets/comics/512291822_23947784424851961_811909996357715535_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',59)">
-<img src="assets/comics/512703425_23953712507592486_4209097176983933826_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',60)">
-<img src="assets/comics/513902703_23947377324892671_8044813317430866325_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',61)">
-<img src="assets/comics/513973913_23939161909047546_7675116467062699231_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',62)">
-<img src="assets/comics/513976241_23948169518146785_2882197084664940266_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',63)">
-<img src="assets/comics/513976946_23947957321501338_1116345179178280510_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',64)">
-<img src="assets/comics/514251563_23961715983458805_5943826570194881631_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',65)">
-<img src="assets/comics/72217848_2528008923922821_6360442387478609920_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',66)">
-<img src="assets/comics/86208186_2792326297491081_3638754395488780288_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',67)">
-<img src="assets/comics/86270217_2792326857491025_4759589565226811392_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',68)">
-<img src="assets/comics/86348503_2792326830824361_3909757979938783232_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',69)">
-<img src="assets/comics/95309127_2964423353614707_4030658792470347776_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',70)">
-<img src="assets/comics/95605278_2964423283614714_4846303821061685248_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',71)">
-<img src="assets/comics/95689195_2964423546948021_1122069208331452416_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',72)">
-<img src="assets/comics/95777882_2964423333614709_6753368110503297024_n.jpg" alt="comics" loading="lazy" onclick="openLb('comics',73)">
-<img src="assets/comics/ILUSTRAÇÃO CONAN IN TIFF.jpg" alt="comics" loading="lazy" onclick="openLb('comics',74)">
-</div>
-</section>
-
-<section id="manuais">
-  <div class="section-title">Artes <b>Manuais</b></div>
-  <div class="varal"><div class="corda"></div>
-<div class="pendura" onclick="openGal('manuais',0)"><img src="assets/manuais/101683655_3046768558713519_1293663305109340160_n.jpg" alt="Artes Manuais" loading="lazy"><div class="lbl">Artes Manuais</div></div>
-<div class="pendura" onclick="openGal('manuais',0)"><img src="assets/manuais/106909143_3131443176912723_5400306314920574389_n.jpg" alt="Artes Manuais" loading="lazy"><div class="lbl">Artes Manuais</div></div>
-<div class="pendura" onclick="openGal('manuais',0)"><img src="assets/manuais/107538756_3134038296653211_1927784439131542260_n.jpg" alt="Artes Manuais" loading="lazy"><div class="lbl">Artes Manuais</div></div>
-<div class="pendura" onclick="openGal('manuais',0)"><img src="assets/manuais/129719755_3562938737096496_3330191207435387304_n.jpg" alt="Artes Manuais" loading="lazy"><div class="lbl">Artes Manuais</div></div>
-<div class="pendura" onclick="openGal('manuais',0)"><img src="assets/manuais/129838478_3562938723763164_5912003828826619831_n.jpg" alt="Artes Manuais" loading="lazy"><div class="lbl">Artes Manuais</div></div>
-<div class="pendura" onclick="openGal('manuais',0)"><img src="assets/manuais/173900418_3920042231386143_6970727549847374759_n.jpg" alt="Artes Manuais" loading="lazy"><div class="lbl">Artes Manuais</div></div>
-<div class="pendura" onclick="openGal('manuais',0)"><img src="assets/manuais/186480902_4016612251729140_2891286380710332730_n.jpg" alt="Artes Manuais" loading="lazy"><div class="lbl">Artes Manuais</div></div>
-<div class="pendura" onclick="openGal('manuais',0)"><img src="assets/manuais/30705646_1722383507818704_8353797427504873472_n.jpg" alt="Artes Manuais" loading="lazy"><div class="lbl">Artes Manuais</div></div>
-<div class="pendura" onclick="openGal('manuais',0)"><img src="assets/manuais/36543865_1808954582494929_381995817235382272_n.jpg" alt="Artes Manuais" loading="lazy"><div class="lbl">Artes Manuais</div></div>
-<div class="pendura" onclick="openGal('manuais',0)"><img src="assets/manuais/38036844_1853175114739542_6174421229265485824_n.jpg" alt="Artes Manuais" loading="lazy"><div class="lbl">Artes Manuais</div></div>
-</div>
-  <div class="grade" id="grade-manuais">
-<img src="assets/manuais/101683655_3046768558713519_1293663305109340160_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',0)">
-<img src="assets/manuais/106909143_3131443176912723_5400306314920574389_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',1)">
-<img src="assets/manuais/107538756_3134038296653211_1927784439131542260_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',2)">
-<img src="assets/manuais/129719755_3562938737096496_3330191207435387304_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',3)">
-<img src="assets/manuais/129838478_3562938723763164_5912003828826619831_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',4)">
-<img src="assets/manuais/173900418_3920042231386143_6970727549847374759_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',5)">
-<img src="assets/manuais/186480902_4016612251729140_2891286380710332730_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',6)">
-<img src="assets/manuais/30705646_1722383507818704_8353797427504873472_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',7)">
-<img src="assets/manuais/36543865_1808954582494929_381995817235382272_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',8)">
-<img src="assets/manuais/38036844_1853175114739542_6174421229265485824_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',9)">
-<img src="assets/manuais/38085425_1853175161406204_3096887169508179968_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',10)">
-<img src="assets/manuais/38204104_1851671158223271_972714692730421248_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',11)">
-<img src="assets/manuais/38208512_1853175068072880_2762488106832625664_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',12)">
-<img src="assets/manuais/49206302_2058834147506970_5408902111150735360_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',13)">
-<img src="assets/manuais/497495742_9852615001462140_7894984602452706666_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',14)">
-<img src="assets/manuais/497515911_9852614998128807_5169814954122910915_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',15)">
-<img src="assets/manuais/497538027_9852614958128811_6540303513962033645_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',16)">
-<img src="assets/manuais/497553631_9852615131462127_4897205864715802447_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',17)">
-<img src="assets/manuais/497586769_9852615114795462_1965109773783410602_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',18)">
-<img src="assets/manuais/49805581_2074699269253791_6530569147334524928_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',19)">
-<img src="assets/manuais/504024335_10022059291184376_1151022164061323978_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',20)">
-<img src="assets/manuais/504187879_10022059661184339_1843095485882204251_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',21)">
-<img src="assets/manuais/504209392_10025263277530644_3448024607019217300_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',22)">
-<img src="assets/manuais/504247388_10032417236815248_1645137881360646635_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',23)">
-<img src="assets/manuais/504378399_10025908480799457_4771115405317355125_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',24)">
-<img src="assets/manuais/504386559_10025886704134968_4735947709686663966_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',25)">
-<img src="assets/manuais/504419071_10022059677851004_6812556019351504291_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',26)">
-<img src="assets/manuais/504419089_10022059667851005_2583531204340267396_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',27)">
-<img src="assets/manuais/504428929_10032434110146894_7201516366786464486_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',28)">
-<img src="assets/manuais/504636757_10022059731184332_1643724989496982236_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',29)">
-<img src="assets/manuais/50466409_2093618944028490_4661259226742521856_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',30)">
-<img src="assets/manuais/504684574_10026563390733966_363848576405280539_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',31)">
-<img src="assets/manuais/504744188_10040490489341256_1203639861518084551_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',32)">
-<img src="assets/manuais/504796264_10026563334067305_6532323531183167168_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',33)">
-<img src="assets/manuais/504827678_10022960384427600_5041038923806553328_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',34)">
-<img src="assets/manuais/504906888_10022059711184334_6815946746405164536_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',35)">
-<img src="assets/manuais/505112095_10032424036814568_5662980142907666719_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',36)">
-<img src="assets/manuais/505177397_10026563744067264_1666701608063169667_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',37)">
-<img src="assets/manuais/505232678_10054370327953272_5246732098122566245_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',38)">
-<img src="assets/manuais/505848313_10041308795926092_8991529509122405017_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',39)">
-<img src="assets/manuais/505893916_10047729881950650_538391301438794849_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',40)">
-<img src="assets/manuais/505939908_10051960128194292_8533471209853649540_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',41)">
-<img src="assets/manuais/50610799_2093618887361829_7918995227883339776_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',42)">
-<img src="assets/manuais/508009885_23868098282820576_1651879428893680631_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',43)">
-<img src="assets/manuais/509604865_23904335349196869_3540371123016884598_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',44)">
-<img src="assets/manuais/509840828_23904335392530198_3526418880371477231_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',45)">
-<img src="assets/manuais/509892475_23912269725070098_8028414496623976196_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',46)">
-<img src="assets/manuais/510235640_23905409452422792_1835552809629041464_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',47)">
-<img src="assets/manuais/510319505_23906881845608886_7060519923062852881_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',48)">
-<img src="assets/manuais/510983791_23904321635864907_1309563441491924760_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',49)">
-<img src="assets/manuais/511249184_23937554805874923_6711023922351448843_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',50)">
-<img src="assets/manuais/511498981_23935782476052156_3710279549326300839_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',51)">
-<img src="assets/manuais/511957100_23935446376085766_6572876543957871309_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',52)">
-<img src="assets/manuais/512040233_23935732982723772_3813295774007384613_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',53)">
-<img src="assets/manuais/512338737_23929425893354481_1458130333942728291_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',54)">
-<img src="assets/manuais/512431490_23937553365875067_315866666839591473_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',55)">
-<img src="assets/manuais/512550137_23937547709208966_8448939216723597588_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',56)">
-<img src="assets/manuais/512669104_23937487845881619_1742454670456887580_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',57)">
-<img src="assets/manuais/512684675_23937469012550169_6991861589007515839_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',58)">
-<img src="assets/manuais/512700968_23936030472694023_744481221392072638_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',59)">
-<img src="assets/manuais/512701667_23937547602542310_4197464204712051504_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',60)">
-<img src="assets/manuais/513196921_23935618139401923_771693064071593394_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',61)">
-<img src="assets/manuais/513208802_23935766052720465_9038439407783753922_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',62)">
-<img src="assets/manuais/513236020_23937487852548285_2978071217908972271_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',63)">
-<img src="assets/manuais/513274017_23936030596027344_3578319928764874237_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',64)">
-<img src="assets/manuais/513502825_23937547575875646_1414968038103895027_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',65)">
-<img src="assets/manuais/513531701_23962487850048285_2719637215902741078_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',66)">
-<img src="assets/manuais/513565641_23937547512542319_249031986402755991_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',67)">
-<img src="assets/manuais/513668165_23937554869208250_3357906997735272827_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',68)">
-<img src="assets/manuais/513825114_23929417090022028_7629459373498118485_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',69)">
-<img src="assets/manuais/513858409_23935918806038523_2159262500955592968_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',70)">
-<img src="assets/manuais/513976722_23935765916053812_5651967134169229101_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',71)">
-<img src="assets/manuais/514060097_23953475130949557_1906583592003875480_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',72)">
-<img src="assets/manuais/514336419_23970579195905817_8874497997579543139_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',73)">
-<img src="assets/manuais/57599683_2216419511748432_790522347537825792_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',74)">
-<img src="assets/manuais/72263575_2528024710587909_7500638114440806400_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',75)">
-<img src="assets/manuais/81785689_2721063417950703_6069779371915214848_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',76)">
-<img src="assets/manuais/82360187_2708130239244021_1486314024516714496_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',77)">
-<img src="assets/manuais/88177415_2839447569445620_679361219458498560_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',78)">
-<img src="assets/manuais/88986736_2839447589445618_4651315003062747136_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',79)">
-<img src="assets/manuais/93209459_2921763844547325_9106510391956996096_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',80)">
-<img src="assets/manuais/94424202_2944078948982481_2514386142703386624_n.jpg" alt="manuais" loading="lazy" onclick="openLb('manuais',81)">
-</div>
-</section>
-
-<section id="ia">
-  <div class="section-title">Artes de <b>IA</b></div>
-  <div class="varal"><div class="corda"></div>
-<div class="pendura" onclick="openGal('ia',0)"><img src="assets/ia/506195043_10055110211212617_7497337230569576828_n.jpg" alt="Artes de IA" loading="lazy"><div class="lbl">Artes de IA</div></div>
-<div class="pendura" onclick="openGal('ia',0)"><img src="assets/ia/513758723_23979849471645456_4509839755611188278_n.jpg" alt="Artes de IA" loading="lazy"><div class="lbl">Artes de IA</div></div>
-<div class="pendura" onclick="openGal('ia',0)"><img src="assets/ia/514870447_23981548391475564_2379066615879865734_n.jpg" alt="Artes de IA" loading="lazy"><div class="lbl">Artes de IA</div></div>
-<div class="pendura" onclick="openGal('ia',0)"><img src="assets/ia/515066944_23979849638312106_2547200446983643730_n.jpg" alt="Artes de IA" loading="lazy"><div class="lbl">Artes de IA</div></div>
-<div class="pendura" onclick="openGal('ia',0)"><img src="assets/ia/515395868_23981548774808859_1163906202793533777_n.jpg" alt="Artes de IA" loading="lazy"><div class="lbl">Artes de IA</div></div>
-<div class="pendura" onclick="openGal('ia',0)"><img src="assets/ia/601971825_25631405139823206_4619637813219267330_n.jpg" alt="Artes de IA" loading="lazy"><div class="lbl">Artes de IA</div></div>
-<div class="pendura" onclick="openGal('ia',0)"><img src="assets/ia/605831782_25631405356489851_6381917506814019003_n.jpg" alt="Artes de IA" loading="lazy"><div class="lbl">Artes de IA</div></div>
-<div class="pendura" onclick="openGal('ia',0)"><img src="assets/ia/613762955_25631406133156440_6173929997067495786_n.jpg" alt="Artes de IA" loading="lazy"><div class="lbl">Artes de IA</div></div>
-<div class="pendura" onclick="openGal('ia',0)"><img src="assets/ia/615214389_25631405209823199_1248149716158536673_n.jpg" alt="Artes de IA" loading="lazy"><div class="lbl">Artes de IA</div></div>
-<div class="pendura" onclick="openGal('ia',0)"><img src="assets/ia/615231145_25669293652701021_5774915244862190464_n.jpg" alt="Artes de IA" loading="lazy"><div class="lbl">Artes de IA</div></div>
-</div>
-  <div class="grade" id="grade-ia">
-<img src="assets/ia/506195043_10055110211212617_7497337230569576828_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',0)">
-<img src="assets/ia/513758723_23979849471645456_4509839755611188278_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',1)">
-<img src="assets/ia/514870447_23981548391475564_2379066615879865734_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',2)">
-<img src="assets/ia/515066944_23979849638312106_2547200446983643730_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',3)">
-<img src="assets/ia/515395868_23981548774808859_1163906202793533777_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',4)">
-<img src="assets/ia/601971825_25631405139823206_4619637813219267330_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',5)">
-<img src="assets/ia/605831782_25631405356489851_6381917506814019003_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',6)">
-<img src="assets/ia/613762955_25631406133156440_6173929997067495786_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',7)">
-<img src="assets/ia/615214389_25631405209823199_1248149716158536673_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',8)">
-<img src="assets/ia/615231145_25669293652701021_5774915244862190464_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',9)">
-<img src="assets/ia/615338107_25631406213156432_8844032322224545753_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',10)">
-<img src="assets/ia/615346758_25669293766034343_9118131648910522802_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',11)">
-<img src="assets/ia/615432079_25665390926424627_2691525688879729402_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',12)">
-<img src="assets/ia/615434259_25631405443156509_7149086157823376942_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',13)">
-<img src="assets/ia/615447209_25665758336387886_6710591400908564076_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',14)">
-<img src="assets/ia/615472982_25668994646064255_7388924016792198460_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',15)">
-<img src="assets/ia/615661792_25668994619397591_4327922281432459795_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',16)">
-<img src="assets/ia/615675983_25669293796034340_2901237810865277434_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',17)">
-<img src="assets/ia/616082275_25672736479023405_8324722159311281675_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',18)">
-<img src="assets/ia/616255140_25672749949022058_6727096493288119572_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',19)">
-<img src="assets/ia/616617319_25669049012725485_1480560116114814409_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',20)">
-<img src="assets/ia/618102514_25668994616064258_5873154091960442510_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',21)">
-<img src="assets/ia/631042380_25916382321325485_7244695343405754568_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',22)">
-<img src="assets/ia/631064305_25916384534658597_5777351379065479337_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',23)">
-<img src="assets/ia/631106653_25916384371325280_8928406941270936910_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',24)">
-<img src="assets/ia/631163268_25916388657991518_8533205157046939599_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',25)">
-<img src="assets/ia/631177726_25916384584658592_7027316713486770241_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',26)">
-<img src="assets/ia/631394639_25916386671325050_3128038737320964083_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',27)">
-<img src="assets/ia/631415840_25916386547991729_1437417891421287939_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',28)">
-<img src="assets/ia/634067328_25916382317992152_3021175591032432817_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',29)">
-<img src="assets/ia/634070881_25916382551325462_2289211064821825094_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',30)">
-<img src="assets/ia/634087315_25916388647991519_4580786172708522597_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',31)">
-<img src="assets/ia/634098537_25916388871324830_8448176411639449935_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',32)">
-<img src="assets/ia/634141321_25916384384658612_325468763111454922_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',33)">
-<img src="assets/ia/646380026_26130997656530616_8944546529936164370_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',34)">
-<img src="assets/ia/649168575_26130997619863953_2106536630827503573_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',35)">
-<img src="assets/ia/739917737_27674381902192176_3113715558455235639_n.webp" alt="ia" loading="lazy" onclick="openLb('ia',36)">
-<img src="assets/ia/739995656_27674381775525522_1273227966257418216_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',37)">
-<img src="assets/ia/742020157_27674388585524841_3703107586905800703_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',38)">
-<img src="assets/ia/742903252_27674388622191504_4793024692699857432_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',39)">
-<img src="assets/ia/742951638_27674381768858856_7125397815841443004_n.webp" alt="ia" loading="lazy" onclick="openLb('ia',40)">
-<img src="assets/ia/743081950_27674388485524851_4089177293483388845_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',41)">
-<img src="assets/ia/743081950_27674389032191463_6588805079664853186_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',42)">
-<img src="assets/ia/743261804_27674381662192200_8939315159427856632_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',43)">
-<img src="assets/ia/743261973_27674388098858223_6930582890555728504_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',44)">
-<img src="assets/ia/743270117_27663386449958388_6905431989127980604_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',45)">
-<img src="assets/ia/743270265_27674388125524887_5392139444647758760_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',46)">
-<img src="assets/ia/743967208_27674381658858867_6675630276010926022_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',47)">
-<img src="assets/ia/744169779_27674388528858180_8013369834775200493_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',48)">
-<img src="assets/ia/750665658_27663383339958699_1989364217148722043_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',49)">
-<img src="assets/ia/752569809_27663388789958154_6067327040679118399_n.jpg" alt="ia" loading="lazy" onclick="openLb('ia',50)">
-<img src="assets/ia/Elfa_ia.jpg" alt="ia" loading="lazy" onclick="openLb('ia',51)">
-</div>
-</section>
-
-<section id="videos">
-  <div class="section-title">Meus <b>Vídeos</b></div>
-  <div class="videos">
-<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fjhonathandarkness%2Fvideos%2F907149355576409%2F&show_text=true&width=267&t=0" width="476" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fjhonathandarkness%2Fvideos%2F932162206535160%2F&show_text=false&width=476" width="476" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fjhonathandarkness%2Fvideos%2F953602130431366%2F&show_text=false&width=476" width="476" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fjhonathandarkness%2Fvideos%2F1429379805406004%2F&show_text=false&width=476" width="476" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-<video src="assets/videos/comercial_santana.mp4" controls style="width:476px;max-width:100%;border:2px solid #1a1a1a"></video>
-<video src="assets/videos/santana_livro_2.mp4" controls style="width:476px;max-width:100%;border:2px solid #1a1a1a"></video>
-</div>
-</section>
-
-<section id="animacao">
-  <div class="section-title">Animação de <b>IA</b></div>
-  <div class="videos">
-<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fjhonathandarkness%2Fvideos%2F907149355576409%2F&show_text=true&width=267&t=0" width="476" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fjhonathandarkness%2Fvideos%2F932162206535160%2F&show_text=false&width=476" width="476" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fjhonathandarkness%2Fvideos%2F953602130431366%2F&show_text=false&width=476" width="476" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fjhonathandarkness%2Fvideos%2F1429379805406004%2F&show_text=false&width=476" width="476" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-<video src="assets/videos/comercial_santana.mp4" controls style="width:476px;max-width:100%;border:2px solid #1a1a1a"></video>
-<video src="assets/videos/santana_livro_2.mp4" controls style="width:476px;max-width:100%;border:2px solid #1a1a1a"></video>
-</div>
-</section>
-
-<section id="contato" class="contato">
-  <div class="section-title">Contato</div>
-  <p><a href="mailto:jhon-darkness@hotmail.com">jhon-darkness@hotmail.com</a></p>
-  <p style="color:var(--mut);margin-top:10px">Jhonathan Luiz De Paula</p>
-</section>
-
-<footer>© 2026 Jhonathan Luiz De Paula — todos os direitos reservados</footer>
-
-<div class="lb" id="lb">
-  <span class="close" onclick="closeLb()">✕</span>
-  <img id="lbimg" src="" alt="">
-  <div class="nav">
-    <button onclick="lbPrev()">‹ Anterior</button>
-    <button onclick="lbNext()">Próxima ›</button>
+<header class="hero">
+  <img class="art" src="assets/comics/131691794_3592833050773731_7673138246640333056_n.jpg" alt="hero artwork">
+  <div class="veil"></div>
+  <div class="content">
+    <p class="meta reveal">Comic Coloring · Visual Direction · Digital Art</p>
+    <h1 class="reveal">COMIC COLORING<br>&amp; <span class="em">VISUAL</span><br>DIRECTION</h1>
+    <p class="sub reveal"><b>WE DON'T JUST COLOR STORIES.</b><br>WE GIVE THEM A VISUAL IDENTITY.</p>
   </div>
-</div>
+  <div class="scroll"><span class="bar"></span><span class="meta">Scroll</span></div>
+</header>
 
-<script>
-const DATA = {"comics": ["131691794_3592833050773731_7673138246640333056_n.jpg", "131713956_3592830730773963_5451197990680390707_n.jpg", "30261386_1714334998623555_3135055839493095424_n.jpg", "30624619_1718162304907491_2318758109016752128_n.jpg", "503273708_10015171538539818_3389980250132042163_n.jpg", "503350167_10015171758539796_7255523731346531811_n.jpg", "503435307_10015171508539821_1883827961031514790_n.jpg", "503461244_10015171765206462_4740553039685887658_n.jpg", "503501030_10015171775206461_8066395096655355679_n.jpg", "503570001_10015171485206490_1815629274889927094_n.jpg", "503641866_10015171421873163_4993166262186823045_n.jpg", "503906834_10030223990367906_4782199905755691406_n.jpg", "503963204_10015171408539831_6019452916703937715_n.jpg", "503998921_10030224023701236_8439855184721840615_n.jpg", "504004024_10015171511873154_3364847769536522077_n.jpg", "504046526_10015171475206491_7061689126552337280_n.jpg", "504214523_10030224017034570_309987094823373365_n.jpg", "504493532_10015171768539795_1761904813546243540_n.jpg", "504799481_10040490522674586_2177096368494523988_n.jpg", "504909467_10030224057034566_6643044640782257332_n.jpg", "504937278_10040490392674599_6042650019022238310_n.jpg", "505069045_10040490592674579_3656958362432111535_n.jpg", "505074923_10040490606007911_181431930357404877_n.jpg", "505101601_10040490736007898_6915777438644980719_n.jpg", "505205141_10040490546007917_7672518222507304919_n.jpg", "505320060_10043010992422539_6920239614422791778_n.jpg", "505352003_10040490692674569_6374489545658229916_n.jpg", "505366867_10043010979089207_225424006737673327_n.jpg", "505415365_10040490566007915_2888675990449042067_n.jpg", "505447111_10043010709089234_6622783603091769323_n.jpg", "505575290_10043012579089047_7017660082617941625_n.jpg", "506049767_10078013305588974_8609622861471406708_n.jpg", "506052463_10080582375332067_2587950139623123412_n.jpg", "506052482_10078013538922284_8006876054296644324_n.jpg", "506052544_10078013568922281_4059479547062626802_n.jpg", "506054674_10079316788791959_1170022348521968938_n.jpg", "506054781_10080582761998695_4557669578953708160_n.jpg", "506247286_10088540254536279_6510545243046735875_n.jpg", "506435515_10093203097403328_682693762798852951_n.jpg", "506437179_10078684682188503_226498645207684170_n.jpg", "506486577_10093203280736643_6979341453380341024_n.jpg", "506532270_10087342207989417_3248907980893602019_n.jpg", "506609300_10087342214656083_7799570033659603594_n.jpg", "506696332_10078013328922305_413879816762204840_n.jpg", "506722561_10096284653761839_1511931771680976508_n.jpg", "507206343_10093460180710953_952613195861634203_n.jpg", "507268039_10078013492255622_2953667818385891520_n.jpg", "507305032_10078013578922280_8406604141338313798_n.jpg", "507426709_10079316852125286_2646888670866953039_n.jpg", "50806922_2097277783662606_3434684599286890496_n.jpg", "508103379_10093203244069980_6108145061728049245_n.jpg", "508163780_10093203304069974_8899739119567944088_n.jpg", "508622344_23878620335101704_5151692299717011317_n.jpg", "508744165_23881173314846406_5265212814298516757_n.jpg", "509425880_23881170601513344_6106676809702302922_n.jpg", "509440061_23879197841710620_8015061945650835997_n.jpg", "510967429_23939587802338290_3918557759276431969_n.jpg", "511985051_23948481651448905_299188615627674885_n.jpg", "51200818_2111485865575131_6611188367835004928_n.jpg", "512291822_23947784424851961_811909996357715535_n.jpg", "512703425_23953712507592486_4209097176983933826_n.jpg", "513902703_23947377324892671_8044813317430866325_n.jpg", "513973913_23939161909047546_7675116467062699231_n.jpg", "513976241_23948169518146785_2882197084664940266_n.jpg", "513976946_23947957321501338_1116345179178280510_n.jpg", "514251563_23961715983458805_5943826570194881631_n.jpg", "72217848_2528008923922821_6360442387478609920_n.jpg", "86208186_2792326297491081_3638754395488780288_n.jpg", "86270217_2792326857491025_4759589565226811392_n.jpg", "86348503_2792326830824361_3909757979938783232_n.jpg", "95309127_2964423353614707_4030658792470347776_n.jpg", "95605278_2964423283614714_4846303821061685248_n.jpg", "95689195_2964423546948021_1122069208331452416_n.jpg", "95777882_2964423333614709_6753368110503297024_n.jpg", "ILUSTRAÇÃO CONAN IN TIFF.jpg"], "manuais": ["101683655_3046768558713519_1293663305109340160_n.jpg", "106909143_3131443176912723_5400306314920574389_n.jpg", "107538756_3134038296653211_1927784439131542260_n.jpg", "129719755_3562938737096496_3330191207435387304_n.jpg", "129838478_3562938723763164_5912003828826619831_n.jpg", "173900418_3920042231386143_6970727549847374759_n.jpg", "186480902_4016612251729140_2891286380710332730_n.jpg", "30705646_1722383507818704_8353797427504873472_n.jpg", "36543865_1808954582494929_381995817235382272_n.jpg", "38036844_1853175114739542_6174421229265485824_n.jpg", "38085425_1853175161406204_3096887169508179968_n.jpg", "38204104_1851671158223271_972714692730421248_n.jpg", "38208512_1853175068072880_2762488106832625664_n.jpg", "49206302_2058834147506970_5408902111150735360_n.jpg", "497495742_9852615001462140_7894984602452706666_n.jpg", "497515911_9852614998128807_5169814954122910915_n.jpg", "497538027_9852614958128811_6540303513962033645_n.jpg", "497553631_9852615131462127_4897205864715802447_n.jpg", "497586769_9852615114795462_1965109773783410602_n.jpg", "49805581_2074699269253791_6530569147334524928_n.jpg", "504024335_10022059291184376_1151022164061323978_n.jpg", "504187879_10022059661184339_1843095485882204251_n.jpg", "504209392_10025263277530644_3448024607019217300_n.jpg", "504247388_10032417236815248_1645137881360646635_n.jpg", "504378399_10025908480799457_4771115405317355125_n.jpg", "504386559_10025886704134968_4735947709686663966_n.jpg", "504419071_10022059677851004_6812556019351504291_n.jpg", "504419089_10022059667851005_2583531204340267396_n.jpg", "504428929_10032434110146894_7201516366786464486_n.jpg", "504636757_10022059731184332_1643724989496982236_n.jpg", "50466409_2093618944028490_4661259226742521856_n.jpg", "504684574_10026563390733966_363848576405280539_n.jpg", "504744188_10040490489341256_1203639861518084551_n.jpg", "504796264_10026563334067305_6532323531183167168_n.jpg", "504827678_10022960384427600_5041038923806553328_n.jpg", "504906888_10022059711184334_6815946746405164536_n.jpg", "505112095_10032424036814568_5662980142907666719_n.jpg", "505177397_10026563744067264_1666701608063169667_n.jpg", "505232678_10054370327953272_5246732098122566245_n.jpg", "505848313_10041308795926092_8991529509122405017_n.jpg", "505893916_10047729881950650_538391301438794849_n.jpg", "505939908_10051960128194292_8533471209853649540_n.jpg", "50610799_2093618887361829_7918995227883339776_n.jpg", "508009885_23868098282820576_1651879428893680631_n.jpg", "509604865_23904335349196869_3540371123016884598_n.jpg", "509840828_23904335392530198_3526418880371477231_n.jpg", "509892475_23912269725070098_8028414496623976196_n.jpg", "510235640_23905409452422792_1835552809629041464_n.jpg", "510319505_23906881845608886_7060519923062852881_n.jpg", "510983791_23904321635864907_1309563441491924760_n.jpg", "511249184_23937554805874923_6711023922351448843_n.jpg", "511498981_23935782476052156_3710279549326300839_n.jpg", "511957100_23935446376085766_6572876543957871309_n.jpg", "512040233_23935732982723772_3813295774007384613_n.jpg", "512338737_23929425893354481_1458130333942728291_n.jpg", "512431490_23937553365875067_315866666839591473_n.jpg", "512550137_23937547709208966_8448939216723597588_n.jpg", "512669104_23937487845881619_1742454670456887580_n.jpg", "512684675_23937469012550169_6991861589007515839_n.jpg", "512700968_23936030472694023_744481221392072638_n.jpg", "512701667_23937547602542310_4197464204712051504_n.jpg", "513196921_23935618139401923_771693064071593394_n.jpg", "513208802_23935766052720465_9038439407783753922_n.jpg", "513236020_23937487852548285_2978071217908972271_n.jpg", "513274017_23936030596027344_3578319928764874237_n.jpg", "513502825_23937547575875646_1414968038103895027_n.jpg", "513531701_23962487850048285_2719637215902741078_n.jpg", "513565641_23937547512542319_249031986402755991_n.jpg", "513668165_23937554869208250_3357906997735272827_n.jpg", "513825114_23929417090022028_7629459373498118485_n.jpg", "513858409_23935918806038523_2159262500955592968_n.jpg", "513976722_23935765916053812_5651967134169229101_n.jpg", "514060097_23953475130949557_1906583592003875480_n.jpg", "514336419_23970579195905817_8874497997579543139_n.jpg", "57599683_2216419511748432_790522347537825792_n.jpg", "72263575_2528024710587909_7500638114440806400_n.jpg", "81785689_2721063417950703_6069779371915214848_n.jpg", "82360187_2708130239244021_1486314024516714496_n.jpg", "88177415_2839447569445620_679361219458498560_n.jpg", "88986736_2839447589445618_4651315003062747136_n.jpg", "93209459_2921763844547325_9106510391956996096_n.jpg", "94424202_2944078948982481_2514386142703386624_n.jpg"], "ia": ["506195043_10055110211212617_7497337230569576828_n.jpg", "513758723_23979849471645456_4509839755611188278_n.jpg", "514870447_23981548391475564_2379066615879865734_n.jpg", "515066944_23979849638312106_2547200446983643730_n.jpg", "515395868_23981548774808859_1163906202793533777_n.jpg", "601971825_25631405139823206_4619637813219267330_n.jpg", "605831782_25631405356489851_6381917506814019003_n.jpg", "613762955_25631406133156440_6173929997067495786_n.jpg", "615214389_25631405209823199_1248149716158536673_n.jpg", "615231145_25669293652701021_5774915244862190464_n.jpg", "615338107_25631406213156432_8844032322224545753_n.jpg", "615346758_25669293766034343_9118131648910522802_n.jpg", "615432079_25665390926424627_2691525688879729402_n.jpg", "615434259_25631405443156509_7149086157823376942_n.jpg", "615447209_25665758336387886_6710591400908564076_n.jpg", "615472982_25668994646064255_7388924016792198460_n.jpg", "615661792_25668994619397591_4327922281432459795_n.jpg", "615675983_25669293796034340_2901237810865277434_n.jpg", "616082275_25672736479023405_8324722159311281675_n.jpg", "616255140_25672749949022058_6727096493288119572_n.jpg", "616617319_25669049012725485_1480560116114814409_n.jpg", "618102514_25668994616064258_5873154091960442510_n.jpg", "631042380_25916382321325485_7244695343405754568_n.jpg", "631064305_25916384534658597_5777351379065479337_n.jpg", "631106653_25916384371325280_8928406941270936910_n.jpg", "631163268_25916388657991518_8533205157046939599_n.jpg", "631177726_25916384584658592_7027316713486770241_n.jpg", "631394639_25916386671325050_3128038737320964083_n.jpg", "631415840_25916386547991729_1437417891421287939_n.jpg", "634067328_25916382317992152_3021175591032432817_n.jpg", "634070881_25916382551325462_2289211064821825094_n.jpg", "634087315_25916388647991519_4580786172708522597_n.jpg", "634098537_25916388871324830_8448176411639449935_n.jpg", "634141321_25916384384658612_325468763111454922_n.jpg", "646380026_26130997656530616_8944546529936164370_n.jpg", "649168575_26130997619863953_2106536630827503573_n.jpg", "739917737_27674381902192176_3113715558455235639_n.webp", "739995656_27674381775525522_1273227966257418216_n.jpg", "742020157_27674388585524841_3703107586905800703_n.jpg", "742903252_27674388622191504_4793024692699857432_n.jpg", "742951638_27674381768858856_7125397815841443004_n.webp", "743081950_27674388485524851_4089177293483388845_n.jpg", "743081950_27674389032191463_6588805079664853186_n.jpg", "743261804_27674381662192200_8939315159427856632_n.jpg", "743261973_27674388098858223_6930582890555728504_n.jpg", "743270117_27663386449958388_6905431989127980604_n.jpg", "743270265_27674388125524887_5392139444647758760_n.jpg", "743967208_27674381658858867_6675630276010926022_n.jpg", "744169779_27674388528858180_8013369834775200493_n.jpg", "750665658_27663383339958699_1989364217148722043_n.jpg", "752569809_27663388789958154_6067327040679118399_n.jpg", "Elfa_ia.jpg"]};
-let curCat=null, curIdx=0;
-function openGal(cat,i){ openLb(cat, i||0); }
-function openLb(cat,i){
-  curCat=cat; curIdx=i;
-  const f=DATA[cat][i];
-  document.getElementById('lbimg').src='assets/'+cat+'/'+encodeURIComponent(f);
-  document.getElementById('lb').classList.add('on');
-}
-function lbPrev(){ if(curIdx>0) openLb(curCat,curIdx-1); }
-function lbNext(){ if(curIdx<DATA[curCat].length-1) openLb(curCat,curIdx+1); }
-function closeLb(){ document.getElementById('lb').classList.remove('on'); }
-document.getElementById('lb').addEventListener('click',e=>{ if(e.target.id==='lb') closeLb(); });
-document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeLb(); if(e.key==='ArrowLeft') lbPrev(); if(e.key==='ArrowRight') lbNext(); });
-</script>
+<section id="work" class="wrap">
+  <div class="sec-head">
+    <h2 class="reveal">SELECTED <span class="em">WORK</span></h2>
+    <p class="meta reveal">209 pieces · 2026</p>
+  </div>
+  <div class="work"><article class="proj p-a reveal">
+  <img src="assets/comics/131691794_3592833050773731_7673138246640333056_n.jpg" alt="131691794 35928330" loading="lazy">
+  <div class="info">
+    <div><div class="num">01</div><div class="ttl">131691794 35928330</div><div class="cat">COMICS</div></div>
+    <div class="yr">2026</div>
+  </div>
+</article>
+<article class="proj p-b reveal">
+  <img src="assets/ia/513758723_23979849471645456_4509839755611188278_n.jpg" alt="513758723 23979849" loading="lazy">
+  <div class="info">
+    <div><div class="num">02</div><div class="ttl">513758723 23979849</div><div class="cat">IA</div></div>
+    <div class="yr">2026</div>
+  </div>
+</article>
+<article class="proj p-c reveal">
+  <img src="assets/manuais/107538756_3134038296653211_1927784439131542260_n.jpg" alt="107538756 31340382" loading="lazy">
+  <div class="info">
+    <div><div class="num">03</div><div class="ttl">107538756 31340382</div><div class="cat">MANUAIS</div></div>
+    <div class="yr">2026</div>
+  </div>
+</article>
+<article class="proj p-d reveal">
+  <img src="assets/comics/30624619_1718162304907491_2318758109016752128_n.jpg" alt="30624619 171816230" loading="lazy">
+  <div class="info">
+    <div><div class="num">04</div><div class="ttl">30624619 171816230</div><div class="cat">COMICS</div></div>
+    <div class="yr">2026</div>
+  </div>
+</article>
+<article class="proj p-e reveal">
+  <img src="assets/ia/515395868_23981548774808859_1163906202793533777_n.jpg" alt="515395868 23981548" loading="lazy">
+  <div class="info">
+    <div><div class="num">05</div><div class="ttl">515395868 23981548</div><div class="cat">IA</div></div>
+    <div class="yr">2026</div>
+  </div>
+</article>
+<article class="proj p-f reveal">
+  <img src="assets/manuais/173900418_3920042231386143_6970727549847374759_n.jpg" alt="173900418 39200422" loading="lazy">
+  <div class="info">
+    <div><div class="num">06</div><div class="ttl">173900418 39200422</div><div class="cat">MANUAIS</div></div>
+    <div class="yr">2026</div>
+  </div>
+</article></div>
+</section>
+
+<section id="ba" class="wrap">
+  <div class="sec-head"><h2 class="reveal">BEFORE <span class="em">/</span> AFTER</h2><p class="meta reveal">Drag</p></div>
+  <div class="ba reveal">
+    <img class="after" src="assets/ia/506195043_10055110211212617_7497337230569576828_n.jpg" alt="after">
+    <img class="before" src="assets/comics/131713956_3592830730773963_5451197990680390707_n.jpg" alt="before">
+    <div class="handle"></div>
+    <span class="lbl l">Line Art</span><span class="lbl r">Final Color</span>
+  </div>
+</section>
+
+<section id="process" class="wrap">
+  <div class="sec-head"><h2 class="reveal">COLORING <span class="em">PROCESS</span></h2></div>
+  <div class="proc"><div class="step reveal"><div class="n">01</div><h4>LINE ART</h4><img src="assets/comics/131691794_3592833050773731_7673138246640333056_n.jpg" alt="LINE ART" loading="lazy"><p>Arte original em preto e branco, estruturada para receber cor.</p></div>
+<div class="step reveal"><div class="n">02</div><h4>FLAT COLORS</h4><img src="assets/comics/131713956_3592830730773963_5451197990680390707_n.jpg" alt="FLAT COLORS" loading="lazy"><p>Aplicação de cores base, definindo a paleta e a leitura das formas.</p></div>
+<div class="step reveal"><div class="n">03</div><h4>LIGHT & SHADOW</h4><img src="assets/comics/30261386_1714334998623555_3135055839493095424_n.jpg" alt="LIGHT & SHADOW" loading="lazy"><p>Luz e sombra para dar volume e profundidade à cena.</p></div>
+<div class="step reveal"><div class="n">04</div><h4>COLOR ATMOSPHERE</h4><img src="assets/comics/30624619_1718162304907491_2318758109016752128_n.jpg" alt="COLOR ATMOSPHERE" loading="lazy"><p>Tratamento atmosférico e harmonia de cor para o clima da página.</p></div>
+<div class="step reveal"><div class="n">05</div><h4>FINAL COLOR</h4><img src="assets/comics/503273708_10015171538539818_3389980250132042163_n.jpg" alt="FINAL COLOR" loading="lazy"><p>Acabamento, detalhes e consistência para impressão ou digital.</p></div></div>
+</section>
+
+<section id="services" class="wrap">
+  <div class="sec-head"><h2 class="reveal">SERVICES</h2></div>
+  <div class="serv"><div class="row reveal"><div class="no">01</div><div><h4>COMIC COLORING</h4><p>Color treatment profissional para páginas sequenciais de quadrinhos.</p></div></div>
+<div class="row reveal"><div class="no">02</div><div><h4>COVER COLORING</h4><p>Direção de cor de alto impacto para capas e arte promocional.</p></div></div>
+<div class="row reveal"><div class="no">03</div><div><h4>POSTER & PROMO</h4><p>Coloração e finalização para pôsteres, anúncios e material promocional.</p></div></div>
+<div class="row reveal"><div class="no">04</div><div><h4>CHARACTER COLOR</h4><p>Paletas e identidade visual para personagens.</p></div></div>
+<div class="row reveal"><div class="no">05</div><div><h4>BACKGROUND & ENV</h4><p>Criação e realce de ambientes e cenários.</p></div></div>
+<div class="row reveal"><div class="no">06</div><div><h4>VISUAL DEVELOPMENT</h4><p>Exploração de cor, atmosfera e visual para projetos.</p></div></div>
+<div class="row reveal"><div class="no">07</div><div><h4>IMAGE ENHANCEMENT</h4><p>Limpeza, realce e melhoria de resolução profissional.</p></div></div>
+<div class="row reveal"><div class="no">08</div><div><h4>PRINT PREPARATION</h4><p>Cor e imagem finais preparadas para impressão profissional.</p></div></div></div>
+</section>
+
+<section class="manifesto">
+  <h2 class="reveal">COLOR IS NOT<br><span class="dim">DECORATION.</span><br>COLOR IS<br><span class="em">STORYTELLING.</span></h2>
+</section>
+
+<section id="film" class="wrap">
+  <div class="sec-head"><h2 class="reveal">FILM &amp; <span class="em">MOTION</span></h2></div>
+  <div class="film">
+<video src="assets/videos/comercial_santana.mp4" controls style="width:420px;max-width:90vw"></video>
+<video src="assets/videos/santana_livro_2.mp4" controls style="width:420px;max-width:90vw"></video>
+<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fjhonathandarkness%2Fvideos%2F907149355576409%2F&show_text=true&width=267&t=0" width="420" height="476" style="border:none;overflow:hidden;max-width:90vw" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fjhonathandarkness%2Fvideos%2F932162206535160%2F&show_text=false&width=476" width="420" height="476" style="border:none;overflow:hidden;max-width:90vw" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fjhonathandarkness%2Fvideos%2F953602130431366%2F&show_text=false&width=476" width="420" height="476" style="border:none;overflow:hidden;max-width:90vw" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fjhonathandarkness%2Fvideos%2F1429379805406004%2F&show_text=false&width=476" width="420" height="476" style="border:none;overflow:hidden;max-width:90vw" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+</div>
+</section>
+
+<section id="about" class="wrap">
+  <div class="sec-head"><h2 class="reveal">ABOUT</h2></div>
+  <div class="about">
+    <img class="reveal" src="assets/manuais/101683655_3046768558713519_1293663305109340160_n.jpg" alt="about">
+    <div class="reveal">
+      <p>Jhonathan Luiz De Paula — colorista de quadrinhos e artista visual focado em transformar arte-line em obras finalizadas atmosféricas, legíveis e visualmente compelling.</p>
+      <p>Atua em <b>colorismo de quadrinhos</b>, ilustração, arte de personagens, desenvolvimento visual e tratamento digital de imagem.</p>
+      <p>Membro da equipe <b>UZ</b>. Trabalha com fluxo profissional de quadrinhos: controle de luz, atmosfera, legibilidade de personagem e saída <b>pronta para impressão</b>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2 class="reveal">LET'S COLOR<br><span class="em">YOUR STORY.</span></h2>
+  <div class="links">
+    <a class="magnetic" href="mailto:jhon-darkness@hotmail.com">Email</a>
+    <a class="magnetic" href="#">Instagram</a>
+    <a class="magnetic" href="https://www.behance.net" target="_blank" rel="noopener">Behance</a>
+    <a class="magnetic" href="#">WhatsApp</a>
+  </div>
+  <div class="sec-head" style="margin-top:50px;justify-content:center"><p class="meta">Available for commissions · Brazil</p></div>
+</section>
+
+<footer>
+  <span>© 2026 Jhonathan Luiz De Paula</span>
+  <span>Comic Coloring & Visual Direction</span>
+</footer>
+
+<script src="main.js"></script>
 </body>
 </html>
