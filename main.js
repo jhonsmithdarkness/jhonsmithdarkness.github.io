@@ -17,6 +17,17 @@
   applyLang(saved || 'pt');
   document.querySelectorAll('.lang a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault(); applyLang(a.dataset.lang);}));
 
+  // HERO SOUND TOGGLE
+  const heroVid = document.getElementById('heroVid');
+  const heroSound = document.getElementById('heroSound');
+  if (heroVid && heroSound){
+    heroSound.addEventListener('click',()=>{
+      heroVid.muted = !heroVid.muted;
+      if(!heroVid.muted){ heroVid.play().catch(()=>{}); heroSound.textContent='🔊 MUDO'; }
+      else { heroSound.textContent='🔇 SOM'; }
+    });
+  }
+
   // CUSTOM CURSOR
   if (!reduce && window.matchMedia('(hover:hover)').matches) {
     const dot=document.createElement('div'); dot.className='cursor-dot';
