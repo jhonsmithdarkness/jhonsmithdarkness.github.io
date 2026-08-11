@@ -14,8 +14,7 @@
     try{ localStorage.setItem('lang', lang); }catch(e){}
   };
   const saved = (()=>{ try{return localStorage.getItem('lang');}catch(e){return null;} })();
-  const navLang = (navigator.language||'pt').slice(0,2);
-  applyLang(saved || (navLang==='en'?'en':'pt'));
+  applyLang(saved || 'pt');
   document.querySelectorAll('.lang a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault(); applyLang(a.dataset.lang);}));
 
   // CUSTOM CURSOR
