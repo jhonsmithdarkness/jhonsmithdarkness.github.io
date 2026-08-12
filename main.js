@@ -41,6 +41,13 @@
     addEventListener('keydown',e=>{ if(e.key==='Escape') fechar(); });
   }
 
+  // LIVRO (Outros Trabalhos)
+  const bookCover=document.getElementById('bookCover');
+  const book=document.getElementById('book');
+  if(bookCover && book){
+    bookCover.addEventListener('click',()=>book.classList.toggle('open'));
+  }
+
   // CUSTOM CURSOR
   if (!reduce && window.matchMedia('(hover:hover)').matches) {
     const dot=document.createElement('div'); dot.className='cursor-dot';
