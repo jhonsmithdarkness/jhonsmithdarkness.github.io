@@ -46,6 +46,23 @@
   const book=document.getElementById('book');
   if(bookCover && book){
     bookCover.addEventListener('click',()=>book.classList.toggle('open'));
+    // navegação de páginas
+    const track=document.getElementById('pagesTrack');
+    const prev=document.getElementById('pagePrev');
+    const next=document.getElementById('pageNext');
+    const count=document.getElementById('pageCount');
+    const pages=track?track.children:[];
+    let cur=0;
+    const show=()=>{
+      if(!track) return;
+      track.style.transform=`translateX(-${cur*100}%)`;
+      if(count) count.textContent=`${cur+1} / ${pages.length}`;
+    };
+    if(track && pages.length){
+      show();
+      prev.addEventListener('click',e=>{e.stopPropagation();cur=(cur-1+pages.length)%pages.length;show();});
+      next.addEventListener('click',e=>{e.stopPropagation();cur=(cur+1)%pages.length;show();});
+    }
   }
 
   // CUSTOM CURSOR
