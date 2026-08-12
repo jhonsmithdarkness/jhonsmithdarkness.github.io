@@ -172,6 +172,38 @@ footer{padding:40px 5vw;border-top:1px solid var(--line);display:flex;justify-co
 .page-count{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);z-index:5;font-size:.62rem;letter-spacing:.24em;color:var(--mut);display:none}
 .book.open .page-count{display:block}
 
+/* DIGITAL ART BOOK 3D */
+.artbook-wrap{perspective:2400px}
+.ab-book{position:relative;max-width:1100px;margin:0 auto;min-height:640px}
+.ab-pages{position:relative}
+.ab-page{background:#0e0e13;border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;box-sizing:border-box;min-height:600px;overflow:hidden}
+.ab-cover{background:linear-gradient(135deg,#14141a,#0a0a0c)}
+.ab-cover-inner{text-align:center;display:flex;flex-direction:column;align-items:center;gap:24px}
+.ab-cover-name{font-family:'Anton',sans-serif;font-size:clamp(2.4rem,6vw,4.5rem);line-height:.9;text-transform:uppercase;color:var(--ink)}
+.ab-cover-role{font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);opacity:.85;line-height:1.8}
+.ab-cover-foot{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mut);margin-top:14px}
+.ab-open{margin-top:14px;display:inline-block;padding:12px 26px;border:1px solid var(--gold);color:var(--gold);font-family:'Anton',sans-serif;letter-spacing:.18em;font-size:.74rem;text-transform:uppercase;cursor:pointer;transition:.3s}
+.ab-open:hover{background:var(--gold);color:#0a0a0c}
+.ab-chapter{background:#0c0c10}
+.ab-chapter-num{font-family:'Anton',sans-serif;font-size:5rem;color:var(--gold);opacity:.22;line-height:1;margin-bottom:10px}
+.ab-chapter h3{font-family:'Anton',sans-serif;font-size:clamp(1.6rem,4vw,2.6rem);text-transform:uppercase;color:var(--ink);margin-bottom:12px;letter-spacing:.02em}
+.ab-chapter p{color:var(--mut);font-weight:300;max-width:420px;text-align:center;line-height:1.5;font-size:.92rem}
+.ab-img{max-width:100%;max-height:520px;object-fit:contain;border:1px solid var(--line)}
+.ab-ba{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.ab-ba-img{width:46%;max-width:300px;object-fit:contain;border:1px solid var(--line)}
+.ab-back{background:linear-gradient(135deg,#0a0a0c,#14141a)}
+.ab-contact-link{margin-top:20px;color:var(--gold);letter-spacing:.1em;font-size:.8rem;text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:4px}
+.ab-controls{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:24px}
+.ab-prev,.ab-next{background:rgba(0,0,0,.5);color:#fff;border:1px solid var(--line);width:48px;height:48px;border-radius:50%;font-size:1.5rem;cursor:pointer;transition:.25s}
+.ab-prev:hover,.ab-next:hover{border-color:var(--gold);color:var(--gold)}
+.ab-indicator{font-size:.68rem;letter-spacing:.2em;color:var(--mut)}
+.ab-fallback{display:flex;flex-direction:column;align-items:center;gap:20px;padding:40px}
+.ab-fallback img{max-width:100%;max-height:70vh;object-fit:contain;border:1px solid var(--line)}
+.ab-fallback .ab-nav{display:flex;gap:20px}
+@media(max-width:760px){
+  .ab-page{min-height:auto;padding:20px}
+  .ab-img{max-height:60vh}
+}
 /* BUTTONS */
 .btn{display:inline-block;padding:14px 28px;font-family:'Anton',sans-serif;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;transition:.3s;cursor:pointer}
 .btn-gold{background:var(--gold);color:#0a0a0c}
