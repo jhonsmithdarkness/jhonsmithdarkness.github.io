@@ -172,6 +172,28 @@ footer{padding:40px 5vw;border-top:1px solid var(--line);display:flex;justify-co
 .page-count{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);z-index:5;font-size:.62rem;letter-spacing:.24em;color:var(--mut);display:none}
 .book.open .page-count{display:block}
 
+/* BUTTONS */
+.btn{display:inline-block;padding:14px 28px;font-family:'Anton',sans-serif;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;transition:.3s;cursor:pointer}
+.btn-gold{background:var(--gold);color:#0a0a0c}
+.btn-gold:hover{background:#d6ad5e;transform:translateY(-2px)}
+.btn-line{border:1px solid var(--line);color:var(--ink)}
+.btn-line:hover{border-color:var(--gold);color:var(--gold)}
+.hero-cta{margin-top:34px;display:flex;gap:16px;flex-wrap:wrap}
+.cta-row{margin-top:34px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* WHY WORK WITH ME */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:5vh}
+.why-item{border-top:1px solid var(--line);padding-top:22px}
+.why-item h4{font-family:'Anton',sans-serif;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+.why-item p{font-size:.86rem;line-height:1.5;color:var(--mut);font-weight:300}
+@media(max-width:760px){.why{grid-template-columns:1fr}}
+
+/* CONTACT sub */
+.contact-sub{max-width:520px;margin:18px auto 0;font-size:1rem;color:var(--mut);font-weight:300;line-height:1.5}
+
+/* FOOTER */
+footer{padding:40px 5vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;color:var(--mut);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase}
+
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
   .reveal{opacity:1!important;transform:none!important}
