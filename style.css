@@ -55,7 +55,7 @@ nav .status .dot{width:8px;height:8px;border-radius:50%;background:#5ad17a;box-s
 .hero-sound:hover{border-color:var(--gold);color:var(--gold)}
 .hero .veil{position:absolute;inset:0;background:radial-gradient(120% 120% at 20% 30%,transparent 30%,var(--bg) 92%)}
 .hero .content{position:relative;z-index:5;height:100%;display:flex;flex-direction:column;justify-content:center;max-width:var(--maxw);margin:0 auto;padding:0 5vw}
-.hero h1{font-family:'Anton',sans-serif;font-weight:400;line-height:.86;font-size:clamp(3.5rem,12vw,11rem);letter-spacing:-.02em;text-transform:uppercase}
+.hero h1{font-family:'Anton',sans-serif;font-weight:400;line-height:.9;font-size:clamp(2.4rem,7vw,6rem);letter-spacing:-.02em;text-transform:uppercase}
 .hero h1 .em{color:var(--gold);font-style:normal}
 .hero .sub{margin-top:28px;max-width:440px;font-size:1rem;color:var(--ink);line-height:1.45;font-weight:300}
 .hero .sub b{font-weight:600}
@@ -67,7 +67,7 @@ nav .status .dot{width:8px;height:8px;border-radius:50%;background:#5ad17a;box-s
 /* SECTION SHELL */
 section{padding:11vh 0;position:relative}
 .sec-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:6vh;gap:20px;flex-wrap:wrap}
-.sec-head h2{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(2.2rem,6vw,4.6rem);line-height:.92;text-transform:uppercase;letter-spacing:-.01em}
+.sec-head h2{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(1.6rem,4vw,3rem);line-height:.92;text-transform:uppercase;letter-spacing:-.01em}
 .sec-head h2 .em{color:var(--gold)}
 .sec-head .meta{font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-top:14px;width:100%}
 .reveal{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
@@ -120,7 +120,7 @@ section{padding:11vh 0;position:relative}
 
 /* MANIFESTO */
 .manifesto{text-align:center;padding:18vh 5vw}
-.manifesto h2{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(2.6rem,9vw,8rem);line-height:.92;text-transform:uppercase;letter-spacing:-.02em}
+.manifesto h2{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(1.8rem,5vw,4rem);line-height:.95;text-transform:uppercase;letter-spacing:-.02em}
 .manifesto h2 .em{color:var(--gold)}
 .manifesto h2 .dim{color:var(--mut)}
 
@@ -133,7 +133,7 @@ section{padding:11vh 0;position:relative}
 
 /* CONTACT */
 .contact{text-align:center;padding:16vh 5vw}
-.contact h2{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(3rem,11vw,9rem);line-height:.9;text-transform:uppercase;letter-spacing:-.02em}
+.contact h2{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(2rem,6vw,4.5rem);line-height:.92;text-transform:uppercase;letter-spacing:-.02em}
 .contact h2 .em{color:var(--gold)}
 .contact .links{display:flex;justify-content:center;gap:34px;flex-wrap:wrap;margin-top:42px}
 .contact .links a{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;border-bottom:1px solid var(--line);padding-bottom:6px;transition:.3s}
