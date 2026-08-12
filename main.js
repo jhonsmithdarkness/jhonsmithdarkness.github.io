@@ -28,6 +28,19 @@
     });
   }
 
+  // LIGHTBOX
+  const lb=document.getElementById('lightbox'), lbImg=document.getElementById('lbImg'), lbClose=document.getElementById('lbClose');
+  if(lb){
+    document.querySelectorAll('img.zoom').forEach(img=>{
+      img.style.cursor='zoom-in';
+      img.addEventListener('click',()=>{ lbImg.src=img.src; lb.classList.add('open'); });
+    });
+    const fechar=()=>lb.classList.remove('open');
+    lbClose.addEventListener('click',fechar);
+    lb.addEventListener('click',e=>{ if(e.target===lb) fechar(); });
+    addEventListener('keydown',e=>{ if(e.key==='Escape') fechar(); });
+  }
+
   // CUSTOM CURSOR
   if (!reduce && window.matchMedia('(hover:hover)').matches) {
     const dot=document.createElement('div'); dot.className='cursor-dot';
