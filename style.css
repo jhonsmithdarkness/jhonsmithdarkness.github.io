@@ -69,6 +69,7 @@ section{padding:11vh 0;position:relative}
 .sec-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:6vh;gap:20px;flex-wrap:wrap}
 .sec-head h2{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(2.2rem,6vw,4.6rem);line-height:.92;text-transform:uppercase;letter-spacing:-.01em}
 .sec-head h2 .em{color:var(--gold)}
+.sec-head .meta{font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-top:14px;width:100%}
 .reveal{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
 
