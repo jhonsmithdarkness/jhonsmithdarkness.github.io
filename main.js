@@ -2,6 +2,63 @@
 (() => {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // DIGITAL ART BOOK 3D
+  (() => {
+    const book = document.getElementById('abBook');
+    if(!book) return;
+    const pagesEl = document.getElementById('abPages');
+    if(!pagesEl) return;
+    const pageDivs = Array.from(pagesEl.querySelectorAll('.ab-page'));
+    const total = pageDivs.length;
+    const ind = document.getElementById('abInd');
+    const prev = document.getElementById('abPrev');
+    const next = document.getElementById('abNext');
+    const fallback = document.getElementById('abFallback');
+    let cur = 0;
+    const showPage = (i) => {
+      cur = Math.max(0, Math.min(total-1, i));
+      pageDivs.forEach((p,idx)=> p.style.display = idx===cur ? 'flex' : 'none');
+      if(ind) ind.textContent = `${cur+1} / ${total}`;
+    };
+    showPage(0);
+    if(prev) prev.addEventListener('click', ()=>showPage(cur-1));
+    if(next) next.addEventListener('click', ()=>showPage(cur+1));
+    document.addEventListener('keydown', (e)=>{
+      if(e.key==='ArrowLeft') showPage(cur-1);
+      if(e.key==='ArrowRight') showPage(cur+1);
+    });
+    // swipe mobile
+    let sx=0;
+    book.addEventListener('touchstart', e=>{ sx=e.changedTouches[0].clientX; }, {passive:true});
+    book.addEventListener('touchend', e=>{
+      const dx = e.changedTouches[0].clientX - sx;
+      if(dx>50) showPage(cur-1); else if(dx<-50) showPage(cur+1);
+    }, {passive:true});
+    // Tenta PageFlip 3D se a lib estiver carregada
+    const tryFlip = () => {
+      if(typeof PageFlip === 'undefined') return;
+      try {
+        const flip = new PageFlip(pagesEl, {
+          width: 500, height: 600, size: 'stretch',
+          minWidth: 280, maxWidth: 700, minHeight: 400, maxHeight: 900,
+          maxShadowOpacity: 0.5, showCover: true, mobileScrollSupport: false,
+          usePortrait: true, autoCenter: true,
+        });
+        flip.loadFromHTML(pageDivs);
+        if(ind) ind.textContent = `${flip.pageNumber+1} / ${total}`;
+        flip.on('flip', (e)=>{ if(ind) ind.textContent = `${e.data+1} / ${total}`; });
+        if(prev) prev.addEventListener('click', ()=>flip.flipPrev());
+        if(next) next.addEventListener('click', ()=>flip.flipNext());
+        document.addEventListener('keydown', (e)=>{
+          if(e.key==='ArrowLeft') flip.flipPrev();
+          if(e.key==='ArrowRight') flip.flipNext();
+        });
+      } catch(err) { /* mantem fallback simples */ }
+    };
+    if(document.readyState === 'complete') setTimeout(tryFlip, 300);
+    else window.addEventListener('load', ()=>setTimeout(tryFlip, 300));
+  })();
+
   // I18N
   const applyLang = (lang) => {
     document.documentElement.lang = lang;
