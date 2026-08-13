@@ -2,6 +2,42 @@
 (() => {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // INTRO CINEMATOGRÁFICA — JLP
+  (() => {
+    const intro = document.getElementById('intro');
+    if(!intro) return;
+    if(sessionStorage.getItem('jlp_intro') === 'done'){ intro.remove(); return; }
+    const video = document.getElementById('introVideo');
+    const skip = document.getElementById('introSkip');
+    let finished = false;
+    const end = () => {
+      if(finished) return; finished = true;
+      intro.classList.add('done');
+      sessionStorage.setItem('jlp_intro','done');
+      setTimeout(()=>intro.remove(), 900);
+    };
+    const playSeq = () => {
+      if(reduce){
+        intro.classList.add('play','sweep');
+        setTimeout(end, 600);
+        return;
+      }
+      intro.classList.add('play');
+      setTimeout(()=>intro.classList.add('sweep'), 2200);
+      setTimeout(end, 4200);
+    };
+    // vídeo (se carregar) ou fallback por tempo
+    if(video){
+      video.play().catch(()=>{});
+      video.addEventListener('ended', ()=>{ if(!reduce) playSeq(); });
+      // se o vídeo não carregar em 1.5s, roda só a animação do nome
+      setTimeout(()=>{ if(video.readyState < 2) playSeq(); }, 1500);
+    } else { playSeq(); }
+    skip.addEventListener('click', end);
+    // timeout de segurança
+    setTimeout(end, 6000);
+  })();
+
   // DIGITAL ART BOOK 3D
   (() => {
     const book = document.getElementById('abBook');
