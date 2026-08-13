@@ -36,9 +36,10 @@
     }, {passive:true});
     // Tenta PageFlip 3D se a lib estiver carregada
     const tryFlip = () => {
-      if(typeof PageFlip === 'undefined') return;
+      const PF = (typeof PageFlip !== 'undefined') ? PageFlip : (window.St && window.St.PageFlip);
+      if(!PF) return;
       try {
-        const flip = new PageFlip(pagesEl, {
+        const flip = new PF(pagesEl, {
           width: 500, height: 600, size: 'stretch',
           minWidth: 280, maxWidth: 700, minHeight: 400, maxHeight: 900,
           maxShadowOpacity: 0.5, showCover: true, mobileScrollSupport: false,
@@ -53,7 +54,7 @@
           if(e.key==='ArrowLeft') flip.flipPrev();
           if(e.key==='ArrowRight') flip.flipNext();
         });
-      } catch(err) { /* mantem fallback simples */ }
+      } catch(err) { console.warn('pageflip fail', err); }
     };
     if(document.readyState === 'complete') setTimeout(tryFlip, 300);
     else window.addEventListener('load', ()=>setTimeout(tryFlip, 300));
