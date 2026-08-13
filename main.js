@@ -60,7 +60,54 @@
     else window.addEventListener('load', ()=>setTimeout(tryFlip, 300));
   })();
 
-  // I18N
+  // FILME & MOTION — modal + filtros
+  (() => {
+    const film = document.querySelector('.film');
+    if(!film) return;
+    // Modal
+    const modal = document.createElement('div');
+    modal.className = 'vmodal';
+    modal.innerHTML = '<button class="vclose" aria-label="Close">×</button><div><video controls preload="metadata"></video><div class="vinfo"></div></div>';
+    document.body.appendChild(modal);
+    const vEl = modal.querySelector('video');
+    const vInfo = modal.querySelector('.vinfo');
+    const openVideo = (src, info) => {
+      vEl.src = src; vInfo.textContent = info || '';
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      vEl.play().catch(()=>{});
+    };
+    const closeModal = () => {
+      modal.classList.remove('open');
+      vEl.pause(); vEl.removeAttribute('src'); vEl.load();
+      document.body.style.overflow = '';
+    };
+    modal.querySelector('.vclose').addEventListener('click', closeModal);
+    modal.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && modal.classList.contains('open')) closeModal(); });
+    film.querySelectorAll('[data-video]').forEach(el=>{
+      el.addEventListener('click', ()=>{
+        const src = el.getAttribute('data-video');
+        const title = el.querySelector('h4') ? el.querySelector('h4').textContent : (el.querySelector('.vf-feat-info h4') ? el.querySelector('.vf-feat-info h4').textContent : '');
+        openVideo(src, title);
+      });
+    });
+    // Filtros
+    const btns = film.querySelectorAll('.vf-btn');
+    const cards = film.querySelectorAll('.vf-card');
+    btns.forEach(b=>{
+      b.addEventListener('click', ()=>{
+        btns.forEach(x=>x.classList.remove('on'));
+        b.classList.add('on');
+        const cat = b.getAttribute('data-cat');
+        cards.forEach(c=>{
+          c.style.display = (cat==='ALL' || c.getAttribute('data-cat')===cat) ? '' : 'none';
+        });
+      });
+    });
+    if(btns[0]) btns[0].classList.add('on');
+  })();
+
   const applyLang = (lang) => {
     document.documentElement.lang = lang;
     document.querySelectorAll('[data-i18n]').forEach(el=>{
