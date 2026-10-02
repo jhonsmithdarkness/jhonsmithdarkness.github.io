@@ -9,23 +9,19 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" as="image" href="assets/comics/1.jpg" fetchpriority="high">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="intro" id="intro">
-  <video class="intro-video" id="introVideo" muted playsinline preload="auto" poster="assets/intro/intro-poster.jpg">
-    <source src="assets/intro/intro.mp4" type="video/mp4">
-  </video>
-  <div class="intro-logo" id="introLogo">
-    <svg viewBox="0 0 600 200" class="intro-svg" aria-label="JHONATHAN L. P. to JLP">
-      <text x="300" y="120" class="t-full" id="tFull">JHONATHAN L. P.</text>
-      <text x="300" y="120" class="t-j" id="tJ">J</text>
-      <text x="360" y="120" class="t-lp" id="tLP">LP</text>
-    </svg>
-    <div class="intro-sweep" id="introSweep"></div>
+  <div class="intro-stages" id="introStages">    <img class="intro-stage" src="assets/comics/1.jpg" alt="" data-label="LINE ART">
+    <img class="intro-stage" src="assets/comics/2.jpg" alt="" data-label="FLAT COLORS" loading='lazy'>
+    <img class="intro-stage" src="assets/comics/3.jpg" alt="" data-label="COLOR + LIGHT" loading='lazy'>
+    <img class="intro-stage" src="assets/comics/5.jpg" alt="" data-label="FINAL ARTWORK" loading='lazy'>
   </div>
-  <button class="intro-skip" id="introSkip">SKIP INTRO →</button>
+  <div class="intro-caption" id="introCaption"></div>
+<button class="intro-skip" id="introSkip">SKIP INTRO →</button>
 </div>
 <nav>
   <span class="brand">JHONATHAN L. P.</span>
