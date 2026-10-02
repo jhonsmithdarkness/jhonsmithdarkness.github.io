@@ -2,40 +2,75 @@
 (() => {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // INTRO CINEMATOGRÁFICA — JLP
+  // INTRO — SEQUENCIA DE COLORIZACAO (4 etapas da mesma arte)
   (() => {
     const intro = document.getElementById('intro');
     if(!intro) return;
     if(sessionStorage.getItem('jlp_intro') === 'done'){ intro.remove(); return; }
-    const video = document.getElementById('introVideo');
+
+    const stages = Array.from(document.querySelectorAll('.intro-stage'));
+    const caption = document.getElementById('introCaption');
     const skip = document.getElementById('introSkip');
+    intro.classList.add('intro-seq');
+
     let finished = false;
     const end = () => {
       if(finished) return; finished = true;
-      intro.classList.add('done');
+      intro.classList.add('done','end');
       sessionStorage.setItem('jlp_intro','done');
       setTimeout(()=>intro.remove(), 900);
     };
-    const playSeq = () => {
-      if(reduce){
-        intro.classList.add('play','sweep');
-        setTimeout(end, 600);
-        return;
-      }
-      intro.classList.add('play');
-      setTimeout(()=>intro.classList.add('sweep'), 2200);
-      setTimeout(end, 4200);
-    };
-    // vídeo (se carregar) ou fallback por tempo
-    if(video){
-      video.play().catch(()=>{});
-      video.addEventListener('ended', ()=>{ if(!reduce) playSeq(); });
-      // se o vídeo não carregar em 1.5s, roda só a animação do nome
-      setTimeout(()=>{ if(video.readyState < 2) playSeq(); }, 1500);
-    } else { playSeq(); }
     skip.addEventListener('click', end);
-    // timeout de segurança
-    setTimeout(end, 6000);
+
+    // prefers-reduced-motion: so a arte final, sem sequencia animada
+    if(reduce || stages.length === 0){
+      const last = stages[stages.length-1];
+      if(last) last.classList.add('on');
+      if(caption){ caption.textContent = 'FINAL ARTWORK'; caption.classList.add('on'); }
+      intro.classList.add('play');
+      setTimeout(()=>intro.classList.add('sweep'), 300);
+      setTimeout(end, 2600);
+      return;
+    }
+
+    // CARREGAMENTO REAL: a 1a imagem e preloaded; as outras entram depois,
+    // porem so quando a anterior ja apareceu. Sem tela preta longa.
+    const show = (i) => {
+      if(i > 0){
+        const nx = stages[i];
+        if(nx && !nx.complete){
+          // so troca quando a proxima ja tiver baixado
+          const go = () => { stages[i-1].classList.remove('on'); nx.classList.add('on'); };
+          nx.addEventListener('load', go, {once:true});
+          nx.addEventListener('error', go, {once:true});
+          setTimeout(go, 1200); // nao bloqueia se a rede demorar
+        } else {
+          stages[i-1].classList.remove('on'); nx.classList.add('on');
+        }
+      } else { stages[0].classList.add('on'); }
+      if(caption){
+        caption.textContent = stages[i].dataset.label || '';
+        caption.classList.add('on');
+      }
+      // pré-carrega a seguinte
+      const nx2 = stages[i+1];
+      if(nx2){ const p = new Image(); p.src = nx2.src; }
+    };
+
+    // duracao total ~6.4s: 1.5s por etapa + 1.9s na final
+    const HOLD = 1500, HOLD_FINAL = 1900;
+    let t = 0;
+    show(0);
+    for(let i=1;i<stages.length;i++){
+      t += (i === stages.length-1) ? HOLD_FINAL : HOLD;
+      setTimeout(()=>show(i), t);
+    }
+    // logo JLP + sweep no fim (igual antes), e revela a pagina
+    setTimeout(()=>{ intro.classList.add('play'); }, t + 350);
+    setTimeout(()=>{ intro.classList.add('sweep'); }, t + 800);
+    setTimeout(end, t + 2600);
+    // timeout de seguranca
+    setTimeout(end, 12000);
   })();
 
   // DIGITAL ART BOOK 3D
