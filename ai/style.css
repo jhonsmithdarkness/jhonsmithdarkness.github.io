@@ -143,3 +143,8 @@ footer{border-top:1px solid rgba(243,239,230,.1);padding:40px 0;text-align:cente
 @media print{.wa-float{display:none}}
 /* ETAPA 2 */
 :where(img[width][height]){height:auto}
+/* ETAPA 3: titulos bilingues dos videos */
+.vid-en{margin:-6px 0 0;padding:0 16px 14px;font-size:.72rem;letter-spacing:.06em;color:var(--mut,#8a8780)}
+.h3-en{color:var(--mut,#8a8780);font-weight:500}
+.uz-intro{color:var(--mut,#8a8780);margin:-.6rem 0 1.4rem;max-width:720px;line-height:1.6}
+.uz-intro span{display:block;font-size:.85em;opacity:.8}

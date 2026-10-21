@@ -327,3 +327,8 @@ footer{padding:40px 5vw;border-top:1px solid var(--line);display:flex;justify-co
 .hero-sound{bottom:96px}
 /* ETAPA 2: imagens com width/height mantem a altura automatica (especificidade zero) */
 :where(img[width][height]){height:auto}
+/* ETAPA 3: sumario do livro e nota de fan art */
+.ab-toc{list-style:none;margin:22px auto 0;padding:0;max-width:320px;width:100%;text-align:left;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
+.ab-toc li{padding:8px 0;border-bottom:1px solid var(--line)}
+.ab-toc li span:first-child{color:var(--gold);margin-right:10px}
+footer .fanart{flex-basis:100%;margin:0;text-transform:none;letter-spacing:.04em;font-size:.62rem;line-height:1.5;opacity:.75}
