@@ -141,3 +141,5 @@ footer{border-top:1px solid rgba(243,239,230,.1);padding:40px 0;text-align:cente
 .wa-float:focus-visible{outline:2px solid #fff;outline-offset:3px}
 @media(max-width:600px){.wa-float{right:16px;bottom:16px;width:54px;height:54px;padding:0;justify-content:center}.wa-float .wa-txt{display:none}.wa-float svg{width:26px;height:26px}}
 @media print{.wa-float{display:none}}
+/* ETAPA 2 */
+:where(img[width][height]){height:auto}

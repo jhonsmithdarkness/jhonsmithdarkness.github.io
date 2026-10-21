@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Anton&display=swap');
 
 :root{
   --bg:#0a0a0c;
@@ -326,3 +325,5 @@ footer{padding:40px 5vw;border-top:1px solid var(--line);display:flex;justify-co
 @media(max-width:600px){.wa-float{right:16px;bottom:16px;width:54px;height:54px;padding:0;justify-content:center}.wa-float .wa-txt{display:none}.wa-float svg{width:26px;height:26px}}
 @media print{.wa-float{display:none}}
 .hero-sound{bottom:96px}
+/* ETAPA 2: imagens com width/height mantem a altura automatica (especificidade zero) */
+:where(img[width][height]){height:auto}
