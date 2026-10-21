@@ -148,3 +148,7 @@ footer{border-top:1px solid rgba(243,239,230,.1);padding:40px 0;text-align:cente
 .h3-en{color:var(--mut,#8a8780);font-weight:500}
 .uz-intro{color:var(--mut,#8a8780);margin:-.6rem 0 1.4rem;max-width:720px;line-height:1.6}
 .uz-intro span{display:block;font-size:.85em;opacity:.8}
+/* ETAPA 4: link de volta so uma vez (desktop: pilula; mobile: dentro do menu), ancoras abaixo da nav */
+.links .back-mob{display:none}
+#curtas,#uzineiros,section{scroll-margin-top:84px}
+.burger:focus-visible,.links a:focus-visible,.back:focus-visible{outline:2px solid var(--gold,#c9a227);outline-offset:3px}

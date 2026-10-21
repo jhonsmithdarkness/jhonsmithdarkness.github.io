@@ -54,7 +54,7 @@ nav .status .dot{width:8px;height:8px;border-radius:50%;background:#5ad17a;box-s
 .hero-sound:hover{border-color:var(--gold);color:var(--gold)}
 .hero .veil{position:absolute;inset:0;background:radial-gradient(120% 120% at 20% 30%,transparent 30%,var(--bg) 92%)}
 .hero .content{position:relative;z-index:5;height:100%;display:flex;flex-direction:column;justify-content:center;max-width:var(--maxw);margin:0 auto;padding:0 5vw}
-.hero h1{font-family:'Anton',sans-serif;font-weight:400;line-height:.9;font-size:clamp(2.4rem,7vw,6rem);letter-spacing:-.02em;text-transform:uppercase}
+.hero h1{font-family:'Anton',sans-serif;font-weight:400;line-height:1.04;padding-top:.06em;font-size:clamp(2.4rem,7vw,6rem);letter-spacing:-.02em;text-transform:uppercase}
 .hero h1 .em{color:var(--gold);font-style:normal}
 .hero .sub{margin-top:28px;max-width:440px;font-size:1rem;color:var(--ink);line-height:1.45;font-weight:300}
 .hero .sub b{font-weight:600}
@@ -339,3 +339,32 @@ footer .fanart{flex-basis:100%;margin:0;text-transform:none;letter-spacing:.04em
 .serv-vid{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1),filter .6s;filter:saturate(.92)}
 @media(hover:hover) and (pointer:fine){.serv .row:hover .serv-vid{transform:scale(1.05);filter:saturate(1.05)}.serv .row:hover .serv-media::after{box-shadow:inset 0 0 0 1px rgba(184,146,74,.55)}}
 @media(prefers-reduced-motion:reduce){.serv-vid{transition:none}.serv .row:hover .serv-vid{transform:none}}
+/* ETAPA 4: nav com fundo no scroll, menu mobile, controles do hero, lightbox acessivel */
+nav{transition:background .35s,padding .35s,box-shadow .35s,backdrop-filter .35s}
+nav.scrolled{mix-blend-mode:normal;background:rgba(10,10,12,.84);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);padding-top:14px;padding-bottom:14px;box-shadow:0 1px 0 var(--line)}
+nav .nav-right{display:flex;align-items:center;gap:18px}
+.burger{display:none}
+@media(max-width:860px){
+  nav{mix-blend-mode:normal}
+  nav .brand{position:relative;z-index:2}
+  nav .nav-right{position:relative;z-index:2}
+  .burger{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:42px;height:38px;padding:0 10px;background:rgba(10,10,12,.55);border:1px solid var(--line);border-radius:8px;cursor:pointer}
+  .burger span{display:block;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s}
+  nav.menu-open .burger{border-color:var(--gold)}
+  nav.menu-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  nav.menu-open .burger span:nth-child(2){opacity:0}
+  nav.menu-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  nav .links{display:flex;position:fixed;top:0;left:0;right:0;z-index:1;flex-direction:column;gap:0;padding:86px 7vw 26px;background:rgba(10,10,12,.97);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);box-shadow:0 30px 60px -30px #000;transform:translateY(-104%);visibility:hidden;transition:transform .38s cubic-bezier(.2,.7,.2,1),visibility 0s .38s}
+  nav.menu-open .links{transform:none;visibility:visible;transition:transform .38s cubic-bezier(.2,.7,.2,1)}
+  nav .links a{padding:15px 2px;border-bottom:1px solid var(--line);font-size:.8rem}
+  nav .links a::after{display:none}
+  nav .links a.to-ai{color:var(--gold);border-bottom:0}
+  nav.menu-open{background:transparent}
+}
+body.menu-lock{overflow:hidden}
+.hero-ctrls{position:absolute;bottom:96px;right:5vw;z-index:6;display:flex;gap:10px}
+.hero-ctrls .hero-sound{position:static}
+.ab-open{cursor:pointer;background:none}
+.ab-open:focus-visible,.burger:focus-visible,.hero-sound:focus-visible,.lightbox .close:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.lightbox .close{background:none;border:0;padding:6px 10px}
+section[id],header[id]{scroll-margin-top:70px}

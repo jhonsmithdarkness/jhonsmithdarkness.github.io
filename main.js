@@ -73,58 +73,76 @@
     setTimeout(end, 12000);
   })();
 
-  // DIGITAL ART BOOK 3D
+  // DIGITAL ART BOOK 3D (PageFlip; fallback simples se a lib falhar)
   (() => {
     const book = document.getElementById('abBook');
-    if(!book) return;
     const pagesEl = document.getElementById('abPages');
-    if(!pagesEl) return;
+    if(!book || !pagesEl) return;
     const pageDivs = Array.from(pagesEl.querySelectorAll('.ab-page'));
     const total = pageDivs.length;
     const ind = document.getElementById('abInd');
     const prev = document.getElementById('abPrev');
     const next = document.getElementById('abNext');
-    const fallback = document.getElementById('abFallback');
-    let cur = 0;
+    const open = document.getElementById('abOpen');
+    let cur = 0, flip = null, inView = false;
+    const setInd = (i) => { if(ind) ind.textContent = `${(Number.isFinite(i)?i:0)+1} / ${total}`; };
     const showPage = (i) => {
       cur = Math.max(0, Math.min(total-1, i));
       pageDivs.forEach((p,idx)=> p.style.display = idx===cur ? 'flex' : 'none');
-      if(ind) ind.textContent = `${cur+1} / ${total}`;
+      setInd(cur);
     };
     showPage(0);
-    if(prev) prev.addEventListener('click', ()=>showPage(cur-1));
-    if(next) next.addEventListener('click', ()=>showPage(cur+1));
+    // um unico handler por controle: PageFlip quando existir, senao o fallback
+    const go = (d) => { if(flip){ d<0 ? flip.flipPrev() : flip.flipNext(); } else showPage(cur+d); };
+    const curIdx = () => flip ? flip.getCurrentPageIndex() : cur;
+    if(prev) prev.addEventListener('click', ()=>go(-1));
+    if(next) next.addEventListener('click', ()=>go(1));
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(es=>{ inView = es[0].isIntersecting; }, {threshold:.35}).observe(book);
+    }
+    // setas do teclado so quando o livro esta visivel ou focado
+    const area = book.closest('section') || book;
     document.addEventListener('keydown', (e)=>{
-      if(e.key==='ArrowLeft') showPage(cur-1);
-      if(e.key==='ArrowRight') showPage(cur+1);
+      if(e.key!=='ArrowLeft' && e.key!=='ArrowRight') return;
+      if(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+      const t = e.target;
+      if(t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT|VIDEO)$/.test(t.tagName))) return;
+      if(document.querySelector('.lightbox.open')) return;
+      const focused = area.contains(document.activeElement) && document.activeElement !== document.body;
+      if(!inView && !focused) return;
+      e.preventDefault();
+      go(e.key==='ArrowLeft' ? -1 : 1);
     });
-    // swipe mobile
-    let sx=0;
-    book.addEventListener('touchstart', e=>{ sx=e.changedTouches[0].clientX; }, {passive:true});
+    // swipe so no fallback (o PageFlip ja trata o arraste)
+    let sx = 0;
+    book.addEventListener('touchstart', e=>{ sx = e.changedTouches[0].clientX; }, {passive:true});
     book.addEventListener('touchend', e=>{
+      if(flip) return;
       const dx = e.changedTouches[0].clientX - sx;
-      if(dx>50) showPage(cur-1); else if(dx<-50) showPage(cur+1);
+      if(dx>50) go(-1); else if(dx<-50) go(1);
     }, {passive:true});
-    // Tenta PageFlip 3D se a lib estiver carregada
+    // ABRIR LIVRO: rola ate o livro e abre a capa
+    if(open){
+      open.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        book.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'center'});
+        setTimeout(()=>{ if(curIdx()===0) go(1); }, reduce ? 0 : 450);
+      });
+    }
     const tryFlip = () => {
       const PF = (typeof PageFlip !== 'undefined') ? PageFlip : (window.St && window.St.PageFlip);
       if(!PF) return;
       try {
-        const flip = new PF(pagesEl, {
+        const f = new PF(pagesEl, {
           width: 500, height: 600, size: 'stretch',
           minWidth: 280, maxWidth: 700, minHeight: 400, maxHeight: 900,
           maxShadowOpacity: 0.5, showCover: true, mobileScrollSupport: false,
           usePortrait: true, autoCenter: true,
         });
-        flip.loadFromHTML(pageDivs);
-        if(ind) ind.textContent = `${flip.pageNumber+1} / ${total}`;
-        flip.on('flip', (e)=>{ if(ind) ind.textContent = `${e.data+1} / ${total}`; });
-        if(prev) prev.addEventListener('click', ()=>flip.flipPrev());
-        if(next) next.addEventListener('click', ()=>flip.flipNext());
-        document.addEventListener('keydown', (e)=>{
-          if(e.key==='ArrowLeft') flip.flipPrev();
-          if(e.key==='ArrowRight') flip.flipNext();
-        });
+        f.loadFromHTML(pageDivs);
+        flip = f;
+        setInd(f.getCurrentPageIndex());
+        f.on('flip', (e)=> setInd(Number(e.data)));
       } catch(err) { console.warn('pageflip fail', err); }
     };
     if(document.readyState === 'complete') setTimeout(tryFlip, 300);
@@ -155,58 +173,88 @@
     });
     document.querySelectorAll('.lang a').forEach(a=>a.classList.toggle('on', a.dataset.lang===lang));
     try{ localStorage.setItem('lang', lang); }catch(e){}
+    if(tr.meta_title) document.title = tr.meta_title;
+    const md = document.querySelector('meta[name="description"]');
+    if(md && tr.meta_desc) md.setAttribute('content', tr.meta_desc);
+    document.dispatchEvent(new CustomEvent('langchange', {detail: lang}));
   };
   const saved = (()=>{ try{return localStorage.getItem('lang');}catch(e){return null;} })();
   // padrao: portugues; so usa EN se o visitante escolheu antes
   applyLang(saved === 'en' ? 'en' : 'pt');
   document.querySelectorAll('.lang a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault(); applyLang(a.dataset.lang);}));
 
-  // HERO SOUND TOGGLE
+  const T = (k, fb) => { const l = document.documentElement.lang === 'en' ? 'en' : 'pt'; return (DICT && DICT[l] && DICT[l][k]) || fb; };
+
+  // NAV: fundo/blur ao rolar + menu mobile
+  const nav = document.getElementById('siteNav');
+  const burger = document.getElementById('navBurger');
+  const navLinks = document.getElementById('navLinks');
+  if(nav){
+    const onScroll = () => nav.classList.toggle('scrolled', scrollY > 40);
+    addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  }
+  if(nav && burger && navLinks){
+    const setMenu = (on) => {
+      nav.classList.toggle('menu-open', on);
+      document.body.classList.toggle('menu-lock', on);
+      burger.setAttribute('aria-expanded', on ? 'true' : 'false');
+    };
+    burger.addEventListener('click', ()=> setMenu(!nav.classList.contains('menu-open')));
+    navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>setMenu(false)));
+    addEventListener('keydown', e=>{ if(e.key==='Escape' && nav.classList.contains('menu-open')){ setMenu(false); burger.focus(); } });
+    matchMedia('(min-width: 861px)').addEventListener('change', e=>{ if(e.matches) setMenu(false); });
+  }
+
+  // HERO: pausa e som
   const heroVid = document.getElementById('heroVid');
   const heroSound = document.getElementById('heroSound');
-  if (heroVid && heroSound){
-    heroSound.addEventListener('click',()=>{
+  const heroPause = document.getElementById('heroPause');
+  const heroLabels = () => {
+    if(!heroVid) return;
+    if(heroSound){ heroSound.textContent = heroVid.muted ? T('hero_sound_on','🔇 SOM') : T('hero_sound_off','🔊 MUDO'); heroSound.setAttribute('aria-pressed', heroVid.muted ? 'false' : 'true'); }
+    if(heroPause){ heroPause.textContent = heroVid.paused ? T('hero_play','▶ PLAY') : T('hero_pause','❚❚ PAUSAR'); heroPause.setAttribute('aria-pressed', heroVid.paused ? 'true' : 'false'); }
+  };
+  if(heroVid){
+    if(reduce){ heroVid.removeAttribute('autoplay'); heroVid.pause(); }
+    if(heroSound) heroSound.addEventListener('click', ()=>{
       heroVid.muted = !heroVid.muted;
-      if(!heroVid.muted){ heroVid.play().catch(()=>{}); heroSound.textContent='🔊 MUDO'; }
-      else { heroSound.textContent='🔇 SOM'; }
+      if(!heroVid.muted) heroVid.play().catch(()=>{});
+      heroLabels();
     });
+    if(heroPause) heroPause.addEventListener('click', ()=>{
+      if(heroVid.paused) heroVid.play().catch(()=>{}); else heroVid.pause();
+    });
+    heroVid.addEventListener('play', heroLabels); heroVid.addEventListener('pause', heroLabels);
+    document.addEventListener('langchange', heroLabels);
+    heroLabels();
   }
 
-  // LIGHTBOX
+  // LIGHTBOX (fecha com o botao, clique fora ou Esc; foco volta para onde estava)
   const lb=document.getElementById('lightbox'), lbImg=document.getElementById('lbImg'), lbClose=document.getElementById('lbClose');
-  if(lb){
+  if(lb && lbImg && lbClose){
+    let lastFocus = null;
+    const abrir = (img) => {
+      lastFocus = document.activeElement;
+      lbImg.src = img.currentSrc || img.src; lbImg.alt = img.alt || '';
+      lb.classList.add('open'); lb.setAttribute('aria-hidden','false');
+      setTimeout(()=>lbClose.focus(), 30);
+    };
+    const fechar = () => {
+      if(!lb.classList.contains('open')) return;
+      lb.classList.remove('open'); lb.setAttribute('aria-hidden','true');
+      if(lastFocus && lastFocus.focus) lastFocus.focus();
+    };
     document.querySelectorAll('img.zoom').forEach(img=>{
       img.style.cursor='zoom-in';
-      img.addEventListener('click',()=>{ lbImg.src=img.src; lb.classList.add('open'); });
+      img.addEventListener('click',()=>abrir(img));
     });
-    const fechar=()=>lb.classList.remove('open');
-    lbClose.addEventListener('click',fechar);
-    lb.addEventListener('click',e=>{ if(e.target===lb) fechar(); });
-    addEventListener('keydown',e=>{ if(e.key==='Escape') fechar(); });
-  }
-
-  // LIVRO (Outros Trabalhos)
-  const bookCover=document.getElementById('bookCover');
-  const book=document.getElementById('book');
-  if(bookCover && book){
-    bookCover.addEventListener('click',()=>book.classList.toggle('open'));
-    // navegação de páginas
-    const track=document.getElementById('pagesTrack');
-    const prev=document.getElementById('pagePrev');
-    const next=document.getElementById('pageNext');
-    const count=document.getElementById('pageCount');
-    const pages=track?track.children:[];
-    let cur=0;
-    const show=()=>{
-      if(!track) return;
-      track.style.transform=`translateX(-${cur*100}%)`;
-      if(count) count.textContent=`${cur+1} / ${pages.length}`;
-    };
-    if(track && pages.length){
-      show();
-      prev.addEventListener('click',e=>{e.stopPropagation();cur=(cur-1+pages.length)%pages.length;show();});
-      next.addEventListener('click',e=>{e.stopPropagation();cur=(cur+1)%pages.length;show();});
-    }
+    lbClose.addEventListener('click', fechar);
+    lb.addEventListener('click', e=>{ if(e.target===lb) fechar(); });
+    addEventListener('keydown', e=>{
+      if(!lb.classList.contains('open')) return;
+      if(e.key==='Escape') fechar();
+      if(e.key==='Tab'){ e.preventDefault(); lbClose.focus(); }
+    });
   }
 
   // CUSTOM CURSOR
