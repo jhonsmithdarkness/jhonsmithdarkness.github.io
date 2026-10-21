@@ -332,3 +332,10 @@ footer{padding:40px 5vw;border-top:1px solid var(--line);display:flex;justify-co
 .ab-toc li{padding:8px 0;border-bottom:1px solid var(--line)}
 .ab-toc li span:first-child{color:var(--gold);margin-right:10px}
 footer .fanart{flex-basis:100%;margin:0;text-transform:none;letter-spacing:.04em;font-size:.62rem;line-height:1.5;opacity:.75}
+/* ETAPA 3b: thumbnails animadas dos servicos */
+.serv .row{padding:26px 14px}
+.serv-media{grid-column:1/-1;margin:0 0 4px;position:relative;aspect-ratio:16/10;overflow:hidden;border-radius:10px;border:1px solid var(--line);background:#0c0c10;box-shadow:0 18px 40px -24px rgba(0,0,0,.8)}
+.serv-media::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(184,146,74,0);background:linear-gradient(180deg,transparent 60%,rgba(8,8,10,.55));transition:box-shadow .5s}
+.serv-vid{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1),filter .6s;filter:saturate(.92)}
+@media(hover:hover) and (pointer:fine){.serv .row:hover .serv-vid{transform:scale(1.05);filter:saturate(1.05)}.serv .row:hover .serv-media::after{box-shadow:inset 0 0 0 1px rgba(184,146,74,.55)}}
+@media(prefers-reduced-motion:reduce){.serv-vid{transition:none}.serv .row:hover .serv-vid{transform:none}}

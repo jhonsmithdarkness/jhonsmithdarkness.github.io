@@ -241,3 +241,16 @@
   // MAGNETIC
   if(!reduce){document.querySelectorAll('.magnetic').forEach(b=>{b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.3}px,${(e.clientY-r.top-r.height/2)*.3}px)`;});b.addEventListener('mouseleave',()=>b.style.transform='');});}
 })();
+/* ETAPA 3b: thumbnails animadas dos servicos (toca so quando visivel; so poster com reduced-motion) */
+(function(){
+  var vids=document.querySelectorAll(".serv-vid");
+  if(!vids.length) return;
+  var rm=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)");
+  if((rm&&rm.matches)||!("IntersectionObserver" in window)) return;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;
+    if(e.isIntersecting){v.preload="auto";var p=v.play();if(p&&p.catch)p.catch(function(){});}
+    else if(!v.paused){v.pause();}
+  });},{threshold:.35});
+  vids.forEach(function(v){v.muted=true;io.observe(v);});
+  if(rm&&rm.addEventListener) rm.addEventListener("change",function(){if(rm.matches){io.disconnect();vids.forEach(function(v){v.pause();v.load();});}});
+})();
