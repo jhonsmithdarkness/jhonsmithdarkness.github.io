@@ -133,3 +133,11 @@ footer{border-top:1px solid rgba(243,239,230,.1);padding:40px 0;text-align:cente
   .rev{opacity:1;transform:none;transition:none}
   *{animation:none!important}
 }
+
+/* WHATSAPP FLUTUANTE (etapa 1) */
+.wa-float{position:fixed;right:24px;bottom:24px;z-index:250;display:inline-flex;align-items:center;gap:10px;padding:12px 20px 12px 16px;border-radius:999px;background:rgba(10,10,12,.88);border:1px solid var(--gold,#b8924a);color:var(--gold,#b8924a);font:600 .7rem/1 'Archivo',Helvetica,Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;box-shadow:0 8px 28px rgba(0,0,0,.45);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:background .25s,color .25s,transform .25s}
+.wa-float svg{flex:none;display:block}
+.wa-float:hover,.wa-float:focus-visible{background:var(--gold,#b8924a);color:#0a0a0c;transform:translateY(-2px)}
+.wa-float:focus-visible{outline:2px solid #fff;outline-offset:3px}
+@media(max-width:600px){.wa-float{right:16px;bottom:16px;width:54px;height:54px;padding:0;justify-content:center}.wa-float .wa-txt{display:none}.wa-float svg{width:26px;height:26px}}
+@media print{.wa-float{display:none}}

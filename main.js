@@ -131,18 +131,26 @@
     else window.addEventListener('load', ()=>setTimeout(tryFlip, 300));
   })();
 
+  // I18N e declarado com const no index.html (nao vira window.I18N), por isso o typeof
+  const DICT = (typeof I18N !== 'undefined') ? I18N : (window.I18N || null);
   const applyLang = (lang) => {
-    document.documentElement.lang = lang;
+    if(!DICT || !DICT[lang]) lang = 'pt';
+    document.documentElement.lang = (lang === 'pt') ? 'pt-BR' : 'en';
+    const tr = (DICT && DICT[lang]) || {};
     document.querySelectorAll('[data-i18n]').forEach(el=>{
-      const key = el.getAttribute('data-i18n');
-      const t = (window.I18N && I18N[lang] && I18N[lang][key]);
+      const t = tr[el.getAttribute('data-i18n')];
       if(t!==undefined && t!==null) el.textContent = t;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(el=>{
+      const t = tr[el.getAttribute('data-i18n-aria')];
+      if(t) el.setAttribute('aria-label', t);
     });
     document.querySelectorAll('.lang a').forEach(a=>a.classList.toggle('on', a.dataset.lang===lang));
     try{ localStorage.setItem('lang', lang); }catch(e){}
   };
   const saved = (()=>{ try{return localStorage.getItem('lang');}catch(e){return null;} })();
-  applyLang(saved || 'pt');
+  // padrao: portugues; so usa EN se o visitante escolheu antes
+  applyLang(saved === 'en' ? 'en' : 'pt');
   document.querySelectorAll('.lang a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault(); applyLang(a.dataset.lang);}));
 
   // HERO SOUND TOGGLE
