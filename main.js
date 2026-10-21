@@ -141,6 +141,14 @@
       const t = tr[el.getAttribute('data-i18n')];
       if(t!==undefined && t!==null) el.textContent = t;
     });
+    document.querySelectorAll('[data-i18n-src]').forEach(el=>{
+      const t = tr[el.getAttribute('data-i18n-src')];
+      if(t && el.getAttribute('src') !== t) el.setAttribute('src', t);
+    });
+    document.querySelectorAll('[data-i18n-alt]').forEach(el=>{
+      const t = tr[el.getAttribute('data-i18n-alt')];
+      if(t) el.setAttribute('alt', t);
+    });
     document.querySelectorAll('[data-i18n-aria]').forEach(el=>{
       const t = tr[el.getAttribute('data-i18n-aria')];
       if(t) el.setAttribute('aria-label', t);
